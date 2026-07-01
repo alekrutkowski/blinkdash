@@ -3,7 +3,7 @@ Title: Visual Static Reactive Dashboards for GitHub Pages
 Version: 0.7.0
 Authors@R: person("Alek", "Rutkowski", email = "alek.rutkowski@gmail.com", role = c("aut", "cre"))
 Description: A browser-based visual dashboard builder backed by a small localhost R server. It exports static JavaScript dashboards with embedded data, explicit reactive input-output wiring, movable cards, tables, native plots with vector SVG export, markdown, trusted HTML, searchable selectize inputs, YAML source editing, and optional webR processors for browser-side R calculations.
-License: MIT + file LICENSE
+License: MIT
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

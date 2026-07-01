@@ -1,0 +1,1172 @@
+schema: https://blinkdash.local/schema/v2
+format:
+  name: BlinkDash YAML
+  version: 2
+  canonical: dashboard.blink.yml
+  jsonMirror: dashboard.blink.json
+title: Iris Explorer
+subtitle: 'A fast static dashboard: visual wiring in the builder, JavaScript-native reactivity in the export, and optional
+  webR snippets only where needed.'
+theme:
+  accent: '#4f46e5'
+  radius: 18
+  density: comfortable
+  glass: true
+datasets:
+  iris:
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.5
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.9
+    Sepal.Width: 3.0
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.7
+    Sepal.Width: 3.2
+    Petal.Length: 1.3
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.6
+    Sepal.Width: 3.1
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.6
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.4
+    Sepal.Width: 3.9
+    Petal.Length: 1.7
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 4.6
+    Sepal.Width: 3.4
+    Petal.Length: 1.4
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.4
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.4
+    Sepal.Width: 2.9
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.9
+    Sepal.Width: 3.1
+    Petal.Length: 1.5
+    Petal.Width: 0.1
+    Species: setosa
+  - Sepal.Length: 5.4
+    Sepal.Width: 3.7
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.8
+    Sepal.Width: 3.4
+    Petal.Length: 1.6
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.8
+    Sepal.Width: 3.0
+    Petal.Length: 1.4
+    Petal.Width: 0.1
+    Species: setosa
+  - Sepal.Length: 4.3
+    Sepal.Width: 3.0
+    Petal.Length: 1.1
+    Petal.Width: 0.1
+    Species: setosa
+  - Sepal.Length: 5.8
+    Sepal.Width: 4.0
+    Petal.Length: 1.2
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.7
+    Sepal.Width: 4.4
+    Petal.Length: 1.5
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 5.4
+    Sepal.Width: 3.9
+    Petal.Length: 1.3
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.5
+    Petal.Length: 1.4
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 5.7
+    Sepal.Width: 3.8
+    Petal.Length: 1.7
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.8
+    Petal.Length: 1.5
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 5.4
+    Sepal.Width: 3.4
+    Petal.Length: 1.7
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.7
+    Petal.Length: 1.5
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 4.6
+    Sepal.Width: 3.6
+    Petal.Length: 1.0
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.3
+    Petal.Length: 1.7
+    Petal.Width: 0.5
+    Species: setosa
+  - Sepal.Length: 4.8
+    Sepal.Width: 3.4
+    Petal.Length: 1.9
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.0
+    Petal.Length: 1.6
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.4
+    Petal.Length: 1.6
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 5.2
+    Sepal.Width: 3.5
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.2
+    Sepal.Width: 3.4
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.7
+    Sepal.Width: 3.2
+    Petal.Length: 1.6
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.8
+    Sepal.Width: 3.1
+    Petal.Length: 1.6
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.4
+    Sepal.Width: 3.4
+    Petal.Length: 1.5
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 5.2
+    Sepal.Width: 4.1
+    Petal.Length: 1.5
+    Petal.Width: 0.1
+    Species: setosa
+  - Sepal.Length: 5.5
+    Sepal.Width: 4.2
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.9
+    Sepal.Width: 3.1
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.2
+    Petal.Length: 1.2
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.5
+    Sepal.Width: 3.5
+    Petal.Length: 1.3
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.9
+    Sepal.Width: 3.6
+    Petal.Length: 1.4
+    Petal.Width: 0.1
+    Species: setosa
+  - Sepal.Length: 4.4
+    Sepal.Width: 3.0
+    Petal.Length: 1.3
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.4
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.5
+    Petal.Length: 1.3
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 4.5
+    Sepal.Width: 2.3
+    Petal.Length: 1.3
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 4.4
+    Sepal.Width: 3.2
+    Petal.Length: 1.3
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.5
+    Petal.Length: 1.6
+    Petal.Width: 0.6
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.8
+    Petal.Length: 1.9
+    Petal.Width: 0.4
+    Species: setosa
+  - Sepal.Length: 4.8
+    Sepal.Width: 3.0
+    Petal.Length: 1.4
+    Petal.Width: 0.3
+    Species: setosa
+  - Sepal.Length: 5.1
+    Sepal.Width: 3.8
+    Petal.Length: 1.6
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 4.6
+    Sepal.Width: 3.2
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.3
+    Sepal.Width: 3.7
+    Petal.Length: 1.5
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 5.0
+    Sepal.Width: 3.3
+    Petal.Length: 1.4
+    Petal.Width: 0.2
+    Species: setosa
+  - Sepal.Length: 7.0
+    Sepal.Width: 3.2
+    Petal.Length: 4.7
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 6.4
+    Sepal.Width: 3.2
+    Petal.Length: 4.5
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 6.9
+    Sepal.Width: 3.1
+    Petal.Length: 4.9
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 5.5
+    Sepal.Width: 2.3
+    Petal.Length: 4.0
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.5
+    Sepal.Width: 2.8
+    Petal.Length: 4.6
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 5.7
+    Sepal.Width: 2.8
+    Petal.Length: 4.5
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.3
+    Sepal.Width: 3.3
+    Petal.Length: 4.7
+    Petal.Width: 1.6
+    Species: versicolor
+  - Sepal.Length: 4.9
+    Sepal.Width: 2.4
+    Petal.Length: 3.3
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 6.6
+    Sepal.Width: 2.9
+    Petal.Length: 4.6
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 5.2
+    Sepal.Width: 2.7
+    Petal.Length: 3.9
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 5.0
+    Sepal.Width: 2.0
+    Petal.Length: 3.5
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 5.9
+    Sepal.Width: 3.0
+    Petal.Length: 4.2
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 6.0
+    Sepal.Width: 2.2
+    Petal.Length: 4.0
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 6.1
+    Sepal.Width: 2.9
+    Petal.Length: 4.7
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 5.6
+    Sepal.Width: 2.9
+    Petal.Length: 3.6
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.1
+    Petal.Length: 4.4
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 5.6
+    Sepal.Width: 3.0
+    Petal.Length: 4.5
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 5.8
+    Sepal.Width: 2.7
+    Petal.Length: 4.1
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 6.2
+    Sepal.Width: 2.2
+    Petal.Length: 4.5
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 5.6
+    Sepal.Width: 2.5
+    Petal.Length: 3.9
+    Petal.Width: 1.1
+    Species: versicolor
+  - Sepal.Length: 5.9
+    Sepal.Width: 3.2
+    Petal.Length: 4.8
+    Petal.Width: 1.8
+    Species: versicolor
+  - Sepal.Length: 6.1
+    Sepal.Width: 2.8
+    Petal.Length: 4.0
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.3
+    Sepal.Width: 2.5
+    Petal.Length: 4.9
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 6.1
+    Sepal.Width: 2.8
+    Petal.Length: 4.7
+    Petal.Width: 1.2
+    Species: versicolor
+  - Sepal.Length: 6.4
+    Sepal.Width: 2.9
+    Petal.Length: 4.3
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.6
+    Sepal.Width: 3.0
+    Petal.Length: 4.4
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 6.8
+    Sepal.Width: 2.8
+    Petal.Length: 4.8
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.0
+    Petal.Length: 5.0
+    Petal.Width: 1.7
+    Species: versicolor
+  - Sepal.Length: 6.0
+    Sepal.Width: 2.9
+    Petal.Length: 4.5
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 5.7
+    Sepal.Width: 2.6
+    Petal.Length: 3.5
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 5.5
+    Sepal.Width: 2.4
+    Petal.Length: 3.8
+    Petal.Width: 1.1
+    Species: versicolor
+  - Sepal.Length: 5.5
+    Sepal.Width: 2.4
+    Petal.Length: 3.7
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 5.8
+    Sepal.Width: 2.7
+    Petal.Length: 3.9
+    Petal.Width: 1.2
+    Species: versicolor
+  - Sepal.Length: 6.0
+    Sepal.Width: 2.7
+    Petal.Length: 5.1
+    Petal.Width: 1.6
+    Species: versicolor
+  - Sepal.Length: 5.4
+    Sepal.Width: 3.0
+    Petal.Length: 4.5
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 6.0
+    Sepal.Width: 3.4
+    Petal.Length: 4.5
+    Petal.Width: 1.6
+    Species: versicolor
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.1
+    Petal.Length: 4.7
+    Petal.Width: 1.5
+    Species: versicolor
+  - Sepal.Length: 6.3
+    Sepal.Width: 2.3
+    Petal.Length: 4.4
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 5.6
+    Sepal.Width: 3.0
+    Petal.Length: 4.1
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 5.5
+    Sepal.Width: 2.5
+    Petal.Length: 4.0
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 5.5
+    Sepal.Width: 2.6
+    Petal.Length: 4.4
+    Petal.Width: 1.2
+    Species: versicolor
+  - Sepal.Length: 6.1
+    Sepal.Width: 3.0
+    Petal.Length: 4.6
+    Petal.Width: 1.4
+    Species: versicolor
+  - Sepal.Length: 5.8
+    Sepal.Width: 2.6
+    Petal.Length: 4.0
+    Petal.Width: 1.2
+    Species: versicolor
+  - Sepal.Length: 5.0
+    Sepal.Width: 2.3
+    Petal.Length: 3.3
+    Petal.Width: 1.0
+    Species: versicolor
+  - Sepal.Length: 5.6
+    Sepal.Width: 2.7
+    Petal.Length: 4.2
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 5.7
+    Sepal.Width: 3.0
+    Petal.Length: 4.2
+    Petal.Width: 1.2
+    Species: versicolor
+  - Sepal.Length: 5.7
+    Sepal.Width: 2.9
+    Petal.Length: 4.2
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.2
+    Sepal.Width: 2.9
+    Petal.Length: 4.3
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 5.1
+    Sepal.Width: 2.5
+    Petal.Length: 3.0
+    Petal.Width: 1.1
+    Species: versicolor
+  - Sepal.Length: 5.7
+    Sepal.Width: 2.8
+    Petal.Length: 4.1
+    Petal.Width: 1.3
+    Species: versicolor
+  - Sepal.Length: 6.3
+    Sepal.Width: 3.3
+    Petal.Length: 6.0
+    Petal.Width: 2.5
+    Species: virginica
+  - Sepal.Length: 5.8
+    Sepal.Width: 2.7
+    Petal.Length: 5.1
+    Petal.Width: 1.9
+    Species: virginica
+  - Sepal.Length: 7.1
+    Sepal.Width: 3.0
+    Petal.Length: 5.9
+    Petal.Width: 2.1
+    Species: virginica
+  - Sepal.Length: 6.3
+    Sepal.Width: 2.9
+    Petal.Length: 5.6
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.5
+    Sepal.Width: 3.0
+    Petal.Length: 5.8
+    Petal.Width: 2.2
+    Species: virginica
+  - Sepal.Length: 7.6
+    Sepal.Width: 3.0
+    Petal.Length: 6.6
+    Petal.Width: 2.1
+    Species: virginica
+  - Sepal.Length: 4.9
+    Sepal.Width: 2.5
+    Petal.Length: 4.5
+    Petal.Width: 1.7
+    Species: virginica
+  - Sepal.Length: 7.3
+    Sepal.Width: 2.9
+    Petal.Length: 6.3
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.7
+    Sepal.Width: 2.5
+    Petal.Length: 5.8
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 7.2
+    Sepal.Width: 3.6
+    Petal.Length: 6.1
+    Petal.Width: 2.5
+    Species: virginica
+  - Sepal.Length: 6.5
+    Sepal.Width: 3.2
+    Petal.Length: 5.1
+    Petal.Width: 2.0
+    Species: virginica
+  - Sepal.Length: 6.4
+    Sepal.Width: 2.7
+    Petal.Length: 5.3
+    Petal.Width: 1.9
+    Species: virginica
+  - Sepal.Length: 6.8
+    Sepal.Width: 3.0
+    Petal.Length: 5.5
+    Petal.Width: 2.1
+    Species: virginica
+  - Sepal.Length: 5.7
+    Sepal.Width: 2.5
+    Petal.Length: 5.0
+    Petal.Width: 2.0
+    Species: virginica
+  - Sepal.Length: 5.8
+    Sepal.Width: 2.8
+    Petal.Length: 5.1
+    Petal.Width: 2.4
+    Species: virginica
+  - Sepal.Length: 6.4
+    Sepal.Width: 3.2
+    Petal.Length: 5.3
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 6.5
+    Sepal.Width: 3.0
+    Petal.Length: 5.5
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 7.7
+    Sepal.Width: 3.8
+    Petal.Length: 6.7
+    Petal.Width: 2.2
+    Species: virginica
+  - Sepal.Length: 7.7
+    Sepal.Width: 2.6
+    Petal.Length: 6.9
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 6.0
+    Sepal.Width: 2.2
+    Petal.Length: 5.0
+    Petal.Width: 1.5
+    Species: virginica
+  - Sepal.Length: 6.9
+    Sepal.Width: 3.2
+    Petal.Length: 5.7
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 5.6
+    Sepal.Width: 2.8
+    Petal.Length: 4.9
+    Petal.Width: 2.0
+    Species: virginica
+  - Sepal.Length: 7.7
+    Sepal.Width: 2.8
+    Petal.Length: 6.7
+    Petal.Width: 2.0
+    Species: virginica
+  - Sepal.Length: 6.3
+    Sepal.Width: 2.7
+    Petal.Length: 4.9
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.3
+    Petal.Length: 5.7
+    Petal.Width: 2.1
+    Species: virginica
+  - Sepal.Length: 7.2
+    Sepal.Width: 3.2
+    Petal.Length: 6.0
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.2
+    Sepal.Width: 2.8
+    Petal.Length: 4.8
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.1
+    Sepal.Width: 3.0
+    Petal.Length: 4.9
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.4
+    Sepal.Width: 2.8
+    Petal.Length: 5.6
+    Petal.Width: 2.1
+    Species: virginica
+  - Sepal.Length: 7.2
+    Sepal.Width: 3.0
+    Petal.Length: 5.8
+    Petal.Width: 1.6
+    Species: virginica
+  - Sepal.Length: 7.4
+    Sepal.Width: 2.8
+    Petal.Length: 6.1
+    Petal.Width: 1.9
+    Species: virginica
+  - Sepal.Length: 7.9
+    Sepal.Width: 3.8
+    Petal.Length: 6.4
+    Petal.Width: 2.0
+    Species: virginica
+  - Sepal.Length: 6.4
+    Sepal.Width: 2.8
+    Petal.Length: 5.6
+    Petal.Width: 2.2
+    Species: virginica
+  - Sepal.Length: 6.3
+    Sepal.Width: 2.8
+    Petal.Length: 5.1
+    Petal.Width: 1.5
+    Species: virginica
+  - Sepal.Length: 6.1
+    Sepal.Width: 2.6
+    Petal.Length: 5.6
+    Petal.Width: 1.4
+    Species: virginica
+  - Sepal.Length: 7.7
+    Sepal.Width: 3.0
+    Petal.Length: 6.1
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 6.3
+    Sepal.Width: 3.4
+    Petal.Length: 5.6
+    Petal.Width: 2.4
+    Species: virginica
+  - Sepal.Length: 6.4
+    Sepal.Width: 3.1
+    Petal.Length: 5.5
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.0
+    Sepal.Width: 3.0
+    Petal.Length: 4.8
+    Petal.Width: 1.8
+    Species: virginica
+  - Sepal.Length: 6.9
+    Sepal.Width: 3.1
+    Petal.Length: 5.4
+    Petal.Width: 2.1
+    Species: virginica
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.1
+    Petal.Length: 5.6
+    Petal.Width: 2.4
+    Species: virginica
+  - Sepal.Length: 6.9
+    Sepal.Width: 3.1
+    Petal.Length: 5.1
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 5.8
+    Sepal.Width: 2.7
+    Petal.Length: 5.1
+    Petal.Width: 1.9
+    Species: virginica
+  - Sepal.Length: 6.8
+    Sepal.Width: 3.2
+    Petal.Length: 5.9
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.3
+    Petal.Length: 5.7
+    Petal.Width: 2.5
+    Species: virginica
+  - Sepal.Length: 6.7
+    Sepal.Width: 3.0
+    Petal.Length: 5.2
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 6.3
+    Sepal.Width: 2.5
+    Petal.Length: 5.0
+    Petal.Width: 1.9
+    Species: virginica
+  - Sepal.Length: 6.5
+    Sepal.Width: 3.0
+    Petal.Length: 5.2
+    Petal.Width: 2.0
+    Species: virginica
+  - Sepal.Length: 6.2
+    Sepal.Width: 3.4
+    Petal.Length: 5.4
+    Petal.Width: 2.3
+    Species: virginica
+  - Sepal.Length: 5.9
+    Sepal.Width: 3.0
+    Petal.Length: 5.1
+    Petal.Width: 1.8
+    Species: virginica
+graph:
+  direction: left-to-right
+  canvas:
+    width: 1560
+    height: 1220
+    grid: 20
+  nodes:
+  - id: species
+    type: dashboard
+    role: input
+    position:
+      x: 60
+      y: 110
+    size:
+      width: 260
+      height: 118
+  - id: sepal_range
+    type: dashboard
+    role: input
+    position:
+      x: 60
+      y: 250
+    size:
+      width: 260
+      height: 118
+  - id: search
+    type: dashboard
+    role: input
+    position:
+      x: 60
+      y: 390
+    size:
+      width: 260
+      height: 104
+  - id: reset
+    type: dashboard
+    role: input
+    position:
+      x: 60
+      y: 520
+    size:
+      width: 260
+      height: 90
+  - id: row_count
+    type: dashboard
+    role: output
+    position:
+      x: 430
+      y: 80
+    size:
+      width: 250
+      height: 120
+  - id: mean_petal
+    type: dashboard
+    role: output
+    position:
+      x: 700
+      y: 80
+    size:
+      width: 250
+      height: 120
+  - id: scatter
+    type: dashboard
+    role: output
+    position:
+      x: 430
+      y: 240
+    size:
+      width: 520
+      height: 300
+  - id: hist
+    type: dashboard
+    role: output
+    position:
+      x: 980
+      y: 240
+    size:
+      width: 420
+      height: 300
+  - id: table
+    type: dashboard
+    role: output
+    position:
+      x: 430
+      y: 590
+    size:
+      width: 650
+      height: 340
+  - id: webr_model
+    type: dashboard
+    role: output
+    position:
+      x: 1110
+      y: 590
+    size:
+      width: 370
+      height: 340
+  - id: about
+    type: dashboard
+    role: output
+    position:
+      x: 430
+      y: 980
+    size:
+      width: 650
+      height: 190
+  edges:
+  - id: edge_species_row_count
+    source: species
+    target: row_count
+    label: filter
+  - id: edge_species_mean_petal
+    source: species
+    target: mean_petal
+    label: filter
+  - id: edge_species_scatter
+    source: species
+    target: scatter
+    label: filter
+  - id: edge_species_hist
+    source: species
+    target: hist
+    label: filter
+  - id: edge_species_table
+    source: species
+    target: table
+    label: filter
+  - id: edge_species_webr_model
+    source: species
+    target: webr_model
+    label: filter
+  - id: edge_sepal_range_row_count
+    source: sepal_range
+    target: row_count
+    label: filter
+  - id: edge_sepal_range_mean_petal
+    source: sepal_range
+    target: mean_petal
+    label: filter
+  - id: edge_sepal_range_scatter
+    source: sepal_range
+    target: scatter
+    label: filter
+  - id: edge_sepal_range_hist
+    source: sepal_range
+    target: hist
+    label: filter
+  - id: edge_sepal_range_table
+    source: sepal_range
+    target: table
+    label: filter
+  - id: edge_sepal_range_webr_model
+    source: sepal_range
+    target: webr_model
+    label: filter
+  - id: edge_search_row_count
+    source: search
+    target: row_count
+    label: filter
+  - id: edge_search_mean_petal
+    source: search
+    target: mean_petal
+    label: filter
+  - id: edge_search_scatter
+    source: search
+    target: scatter
+    label: filter
+  - id: edge_search_hist
+    source: search
+    target: hist
+    label: filter
+  - id: edge_search_table
+    source: search
+    target: table
+    label: filter
+  - id: edge_search_webr_model
+    source: search
+    target: webr_model
+    label: filter
+  - id: edge_reset_row_count
+    source: reset
+    target: row_count
+    label: reset
+state: {}
+widgets:
+- id: species
+  type: multiselect
+  role: input
+  label: Species
+  help: Drag from the right handle to any output to make this filter affect it.
+  data: iris
+  field: Species
+  default:
+  - setosa
+  - versicolor
+  - virginica
+  layout:
+    x: 1
+    y: 2
+    w: 3
+    h: 1
+    px:
+      left: 60
+      top: 110
+      width: 260
+      height: 118
+- id: sepal_range
+  type: range
+  role: input
+  label: Sepal length
+  data: iris
+  field: Sepal.Length
+  min: 4.3
+  max: 7.9
+  step: 0.1
+  default:
+  - 4.3
+  - 7.9
+  layout:
+    x: 1
+    y: 3
+    w: 3
+    h: 1
+    px:
+      left: 60
+      top: 250
+      width: 260
+      height: 118
+- id: search
+  type: search
+  role: input
+  label: Search rows
+  data: iris
+  field: '*'
+  placeholder: Type setosa, 5.1, etc.
+  layout:
+    x: 1
+    y: 5
+    w: 3
+    h: 1
+    px:
+      left: 60
+      top: 390
+      width: 260
+      height: 104
+- id: reset
+  type: button
+  role: input
+  label: Reset filters
+  action: reset
+  layout:
+    x: 1
+    y: 7
+    w: 3
+    h: 1
+    px:
+      left: 60
+      top: 520
+      width: 260
+      height: 90
+- id: row_count
+  type: metric
+  role: output
+  label: Filtered rows
+  data: iris
+  measure:
+    op: count
+  suffix: ' flowers'
+  layout:
+    x: 5
+    y: 1
+    w: 3
+    h: 1
+    px:
+      left: 430
+      top: 80
+      width: 250
+      height: 120
+- id: mean_petal
+  type: metric
+  role: output
+  label: Mean petal length
+  data: iris
+  measure:
+    op: mean
+    field: Petal.Length
+  digits: 2
+  suffix: ' cm'
+  layout:
+    x: 8
+    y: 1
+    w: 3
+    h: 1
+    px:
+      left: 700
+      top: 80
+      width: 250
+      height: 120
+- id: scatter
+  type: scatter
+  role: output
+  title: Sepal length vs petal length
+  data: iris
+  x: Sepal.Length
+  y: Petal.Length
+  color: Species
+  layout:
+    x: 5
+    y: 3
+    w: 6
+    h: 4
+    px:
+      left: 430
+      top: 240
+      width: 520
+      height: 300
+- id: hist
+  type: histogram
+  role: output
+  title: Petal length distribution
+  data: iris
+  x: Petal.Length
+  bins: 20
+  layout:
+    x: 11
+    y: 3
+    w: 5
+    h: 4
+    px:
+      left: 980
+      top: 240
+      width: 420
+      height: 300
+- id: table
+  type: table
+  role: output
+  title: Filtered data
+  data: iris
+  pageSize: 12
+  columns:
+  - Sepal.Length
+  - Sepal.Width
+  - Petal.Length
+  - Petal.Width
+  - Species
+  layout:
+    x: 5
+    y: 8
+    w: 7
+    h: 4
+    px:
+      left: 430
+      top: 590
+      width: 650
+      height: 340
+- id: webr_model
+  type: webr
+  role: output
+  title: Optional client-side R model
+  data: iris
+  buttonLabel: Run R in browser
+  code: 'fit <- lm(Petal.Length ~ Sepal.Length + Species, data = bd_data)
+
+    summary(fit)'
+  layout:
+    x: 13
+    y: 8
+    w: 4
+    h: 4
+    px:
+      left: 1110
+      top: 590
+      width: 370
+      height: 340
+- id: about
+  type: markdown
+  role: output
+  title: How this dashboard is wired
+  markdown: '### Visual wiring
+
+    Drag widgets from the shelf onto the canvas. Draw arrows from inputs to outputs to choose exactly what controls what.
+
+
+    The saved project is `dashboard.blink.yml`, so work in progress stays inspectable and mergeable.'
+  layout:
+    x: 5
+    y: 12
+    w: 7
+    h: 2
+    px:
+      left: 430
+      top: 980
+      width: 650
+      height: 190
+snippets:
+- id: lm_petal
+  label: Linear model on filtered data
+  data: iris
+  code: 'fit <- lm(Petal.Length ~ Sepal.Length + Species, data = bd_data)
+
+    summary(fit)'
+export:
+  rootReady: true
+  includeWorkflow: true
+  generatedBy: blinkdash
+updated: '2026-06-30T13:44:04Z'

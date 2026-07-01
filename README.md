@@ -1,6 +1,6 @@
 # blinkdash
 
-`blinkdash` is an R package for building fast, static, reactive dashboards that can be deployed as ordinary files to GitHub Pages.
+`blinkdash` is an R package for building fast, static, reactive dashboards that can be deployed as ordinary files to e.g. GitHub Pages or any other plain web server.
 
 The builder runs in a browser. Its interface is JavaScript. R is used only as a localhost backend while you are building: it reads local files, imports objects from the calling R environment, saves and opens dashboard designs, runs build-time R snippets, and exports a static site.
 

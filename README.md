@@ -23,7 +23,7 @@ install.packages("remotes")
 remotes::install_github("alekrutkowski/blinkdash")
 ```
 
-From a local source tarball:
+From a local source tarball (downloaded from https://github.com/alekrutkowski/blinkdash/releases):
 
 ```r
 install.packages("path/to/blinkdash_0.7.0.tar.gz", repos = NULL, type = "source")

@@ -6,13 +6,21 @@ The builder runs in a browser. Its interface is JavaScript. R is used only as a 
 
 Exported dashboards do not need R, Shiny, or a server. They are HTML, CSS, JavaScript, and embedded data.
 
+Builder shcreenshot:
+
+<img width="3387" height="2271" alt="image" src="https://github.com/user-attachments/assets/7abf1d23-ac22-4f4d-b9af-c6f39adf9fa7" />
+
+Output screenshot:
+
+<img width="2964" height="2113" alt="image" src="https://github.com/user-attachments/assets/c606cca9-2799-4b58-bd76-560240bd4f8c" />
+
 ## Installation
 
 From GitHub:
 
 ```r
 install.packages("remotes")
-remotes::install_github("AlekRutkowski/blinkdash")
+remotes::install_github("alekrutkowski/blinkdash")
 ```
 
 From a local source tarball:

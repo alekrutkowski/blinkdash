@@ -19,6 +19,7 @@ Core endpoints:
 - `POST /api/eval` evaluates local R snippets with `bd_data`, `bd_state`, and `bd_manifest`.
 - `POST /api/precalculate` saves the result of an R snippet as a static dataset.
 - `POST /api/export` writes the static dashboard site.
+- `GET /compiled/` serves the latest compiled dashboard from the builder's `site/` folder for local preview.
 
 ## Visual graph
 
@@ -34,8 +35,10 @@ The exported dashboard loads `data/app-data.js` and renders cards with JavaScrip
 
 Native plots are drawn on canvas for interactive speed. SVG export is generated separately from vector primitives, so exported SVG files are not bitmap wrappers.
 
+Static tables support sorting, paging, table-level search, and CSV download of the currently displayed filtered data. Markdown blocks use the runtime renderer for fenced code blocks, syntax highlighting, GitHub-style math, and diagram fences.
+
 ## webR
 
-webR is optional. Static filters, metrics, tables, Markdown, HTML, and native plots do not require webR. webR processors auto-run asynchronously on dashboard load and when their connected inputs change. Hidden webR processors still run, so they can feed dependent widgets while staying out of the visible dashboard.
+webR is optional. Static filters, metrics, tables, Markdown, HTML, and native plots do not require webR. webR processors auto-run asynchronously on dashboard load and when their connected inputs change. Hidden webR processors run and can feed dependent widgets while staying out of the visible dashboard.
 
 The visible webR widget is a console/debug surface. Markdown, HTML, table, and plot interpretation is handled by connected output widgets.

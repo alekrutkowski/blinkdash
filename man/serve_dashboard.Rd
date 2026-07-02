@@ -13,5 +13,5 @@ serve_dashboard(path = "site", port = 8080, browse = TRUE)
 Invisibly returns the server URL.
 }
 \description{
-Serves exported dashboard files locally with cross-origin isolation headers useful for webR testing.
+Serves exported dashboard files locally with cross-origin isolation headers preferred by webR.
 }

@@ -1,18 +1,18 @@
 # blinkdash
 
-`blinkdash` is an R package for building fast, static, reactive dashboards that can be deployed as ordinary files to e.g. GitHub Pages or any other plain web server.
+`blinkdash` is an R package for building fast, static, reactive dashboards that can be deployed as ordinary files to GitHub Pages or any other plain web server.
 
-The builder runs in a browser. Its interface is JavaScript. R is used only as a localhost backend while you are building: it reads local files, imports objects from the calling R environment, saves and opens dashboard designs, runs build-time R snippets, and exports a static site.
+The builder runs in a browser. Its interface is vanilla JavaScript. R is used only as a localhost backend while you are building: it reads local files, imports objects from the calling R environment, saves and opens dashboard designs, runs build-time R snippets, and exports a static site.
 
 Exported dashboards do not need R, Shiny, or a server. They are HTML, CSS, JavaScript, and embedded data.
 
-Builder shcreenshot:
+Builder screenshot:
 
-<img width="3387" height="2271" alt="image" src="https://github.com/user-attachments/assets/7abf1d23-ac22-4f4d-b9af-c6f39adf9fa7" />
+<img width="3387" height="2271" alt="BlinkDash builder screenshot" src="https://github.com/user-attachments/assets/7abf1d23-ac22-4f4d-b9af-c6f39adf9fa7" />
 
-Output screenshot:
+Exported dashboard screenshot:
 
-<img width="2964" height="2113" alt="image" src="https://github.com/user-attachments/assets/c606cca9-2799-4b58-bd76-560240bd4f8c" />
+<img width="2964" height="2113" alt="BlinkDash exported dashboard screenshot" src="https://github.com/user-attachments/assets/c606cca9-2799-4b58-bd76-560240bd4f8c" />
 
 ## Installation
 
@@ -23,10 +23,10 @@ install.packages("remotes")
 remotes::install_github("alekrutkowski/blinkdash")
 ```
 
-From a local source tarball (downloaded from https://github.com/alekrutkowski/blinkdash/releases):
+From a local source tarball downloaded from a GitHub release:
 
 ```r
-install.packages("path/to/blinkdash_0.7.0.tar.gz", repos = NULL, type = "source")
+install.packages("path/to/blinkdash_0.7.8.tar.gz", repos = NULL, type = "source")
 ```
 
 Runtime dependencies are `httpuv`, `jsonlite`, `yaml`, and standard R packages including `tools` and `utils`. The optional `arrow` package enables Parquet and Feather imports.
@@ -56,11 +56,11 @@ The builder opens in your browser. Stop the local builder from R with Esc or Ctr
 | `write_dashboard()` | Write a dashboard design to YAML and JSON. |
 | `widget_registry()` | Return metadata for the available widget types. |
 
-## The design model
+## Design model
 
 A BlinkDash design is a directed graph:
 
-- input widgets are controls, such as selectize inputs, sliders, date ranges, search boxes, and toggles
+- input widgets are controls, such as selectize inputs, sliders, dual-thumb range rulers, date ranges, search boxes, toggles, and number filters with configurable minimum, maximum, and step
 - output widgets are views, such as metrics, tables, plots, Markdown, HTML, R plot viewers, and webR consoles
 - directed arrows describe exactly which inputs affect which outputs
 - a webR processor can sit between inputs and outputs, receiving parameters and producing Markdown, HTML, table, or plot results
@@ -75,7 +75,9 @@ The builder has three main panes:
 2. **Graph canvas** – move, resize, align, link, and delete widgets.
 3. **Inspector** – edit project settings, selected widget settings, data imports, local R snippets, checks, and links.
 
-Switch between **Visual** and **YAML** views in the top bar. The YAML view edits the same project source used by the visual builder.
+The top bar switches between **Visual** and **YAML** views. The YAML view edits the same project source used by the visual builder. The **Project** tab controls builder and exported dashboard themes, font family, exported dashboard base font size, plot palette, decimal formatting, badge text, and footer text.
+
+Use **Compile and view** to export the current design into `site/` and open that compiled dashboard at `/compiled/` from the builder server. Use **Export site** to write the same static dashboard files for deployment, optionally with a GitHub Pages workflow.
 
 ## Saving and opening designs
 
@@ -132,7 +134,7 @@ bd_params  # named list with only upstream linked input values
 bd_meta    # list with dataset name and row count
 ```
 
-The visible webR widget is always a console/debug surface. It does not render HTML, Markdown, tables, or plots itself. Connect it to a Markdown widget, HTML widget, Table widget, or R plot viewer to display its result.
+The visible webR widget is a console/debug surface. It does not render HTML, Markdown, tables, or plots itself. Connect it to a Markdown widget, HTML widget, Table widget, or R plot viewer to display its result.
 
 The webR package field is a comma-separated list. Packages are installed in the browser through webR and then attached with `library()`. Package installation can take time on the first dashboard load.
 
@@ -156,24 +158,35 @@ print(p)
 
 webR plot capture tries the R `grDevices::svg()` device first. If SVG capture is unavailable, it falls back to bitmap capture.
 
-## Markdown and HTML widgets
+## Markdown, HTML, and code editors
 
-Markdown widgets render styled dashboard HTML. HTML widgets insert trusted markup directly.
+Markdown widgets render styled dashboard HTML. Markdown supports:
 
-Both widgets can use input placeholders when arrows connect inputs to the widget:
+- fenced code blocks with syntax highlighting
+- GitHub-style inline and block math
+- fenced `math` blocks
+- diagram fences for `mermaid`, `geojson`, `topojson`, and `stl`
+- upstream input placeholders such as `{{species}}` and `{{param.species}}`
 
-```text
-{{species}}
-{{param.species}}
-```
+HTML widgets insert trusted markup directly and can also use upstream input placeholders. Script tags inside HTML widgets are not intentionally executed by the BlinkDash runtime.
 
-The placeholder name is the input widget id. Arrays are shown as comma-separated values. Script tags inside HTML widgets are not intentionally executed by the BlinkDash runtime.
+Markdown, HTML, and webR widgets include a **Soft wrap code editor** toggle in the builder inspector. Soft wrapping is on by default.
 
-## Plots
+## Inputs, tables, metrics, and plots
 
-Native plot widgets are drawn on canvas for fast interaction. Their **SVG** export button generates genuine vector SVG made from SVG primitives. The **PNG** export button exports a bitmap snapshot.
+Numeric slider and range widgets share the same ruler styling. The range widget uses two draggable pointers for lower and upper bounds, and number filters support configurable minimum, maximum, and step values.
 
-Supported native plot widgets include scatter, line, bar, histogram, box plot, heatmap, and pie/donut. Plot widgets support per-chart palettes, full-screen viewing, and decimal dot or decimal comma formatting.
+Metric widgets summarize filtered rows with count, sum, mean, median, minimum, maximum, quartiles, quintiles, and deciles. Table widgets provide sorting, paging, table-level search, and **Download CSV** for the currently filtered, searched, and sorted rows.
+
+Native plot widgets are drawn on canvas for fast interaction. Their **SVG** export button generates genuine vector SVG from SVG primitives, and their **PNG** export button exports a bitmap snapshot. Supported native plot widgets include scatter, line, bar, histogram, box plot, heatmap, and pie/donut.
+
+Scatter and line plots show legends when a color field is selected. Bar charts can use one color for all bars or different colors by category, can sort categories by X-axis order or by value increasing/decreasing, and can show values on hover.
+
+## Themes, fonts, and layout
+
+BlinkDash includes light and dark themes for both the builder and exported dashboards. Built-in themes include Aurora, Paper, Berry, Slate, Mint, Sand, Ocean, Lavender, Graphite, Midnight, Forest, Dusk, Ember, Lagoon, and Grape.
+
+The exported dashboard base font size scales widget text consistently across controls, tables, metrics, native plots, legends, tooltips, Markdown, HTML, and SVG exports. Exact-position dashboards trim unused leading canvas space in the exported view while preserving relative widget positions.
 
 ## Exporting
 

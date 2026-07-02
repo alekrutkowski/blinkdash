@@ -83,9 +83,11 @@ blink_export_readme <- function(title) {
 
 #' Export a static dashboard
 #'
+#' Exports HTML, CSS, JavaScript, embedded data, and optional GitHub Pages deployment metadata for a BlinkDash dashboard.
+#'
 #' @param project A manifest list, a `dashboard.blink.yml`/`dashboard.blink.json` file, or a dashboard project directory.
 #' @param out_dir Output directory. For the lowest-friction GitHub Pages path, use the repository root of a `username.github.io` repo.
-#' @param include_workflow Whether to include a GitHub Pages workflow.
+#' @param include_workflow Whether to include a GitHub Pages workflow in the exported site.
 #' @param overwrite Whether to overwrite existing generated files.
 #'
 #' @return The output directory, invisibly.

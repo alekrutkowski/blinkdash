@@ -32,12 +32,12 @@ blink_default_manifest <- function(title = "Iris Explorer") {
   iris <- as.data.frame(iris, stringsAsFactors = FALSE)
 
   nodes <- list(
-    blink_node("species", "input", 70, 90, 285, 145),
-    blink_node("sepal_range", "input", 70, 270, 285, 130),
-    blink_node("row_count", "output", 430, 80, 260, 125),
-    blink_node("scatter", "output", 430, 240, 560, 335),
-    blink_node("table", "output", 1030, 240, 600, 335),
-    blink_node("about", "output", 430, 620, 760, 220)
+    blink_node("species", "input", 70, 90, 330, 210),
+    blink_node("sepal_range", "input", 70, 340, 340, 190),
+    blink_node("row_count", "output", 430, 80, 330, 210),
+    blink_node("scatter", "output", 430, 340, 600, 430),
+    blink_node("table", "output", 1060, 340, 760, 640),
+    blink_node("about", "output", 430, 1040, 760, 300)
   )
 
   node_by_id <- setNames(nodes, vapply(nodes, `[[`, character(1), "id"))
@@ -66,6 +66,7 @@ blink_default_manifest <- function(title = "Iris Explorer") {
       builderName = "aurora",
       dashboardName = "aurora",
       font = "Inter",
+      baseFontSize = 16,
       plotPalette = "okabe",
       accent = "#4f46e5",
       radius = 18,
@@ -78,7 +79,7 @@ blink_default_manifest <- function(title = "Iris Explorer") {
     datasets = list(iris = iris),
     graph = list(
       direction = "left-to-right",
-      canvas = list(width = 1700, height = 1180, grid = 20),
+      canvas = list(width = 1900, height = 1400, grid = 20),
       nodes = nodes,
       edges = edges
     ),
@@ -159,6 +160,7 @@ blink_default_manifest <- function(title = "Iris Explorer") {
           "Open the **YAML** view to edit the human-readable `dashboard.blink.yml` source directly.",
           sep = "\n"
         ),
+        softWrap = TRUE,
         layout = layout("about")
       )
     ),

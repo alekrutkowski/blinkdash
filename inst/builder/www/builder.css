@@ -12,6 +12,7 @@
   --bad: #b91c1c;
   --radius: 16px;
   --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --preview-base-font-size: 16px;
   color-scheme: light;
 }
 :root[data-theme="dark"] { color-scheme: dark; --good: #34d399; --warn: #fbbf24; --bad: #fb7185; }
@@ -98,12 +99,22 @@ code, pre, textarea.code, .code-preview, .yaml-editor, .result-box { font-family
 .node-info, .node-close { border: 0; background: transparent; color: var(--muted); font-size: 16px; line-height: 1; padding: 0 2px; box-shadow: none; }
 .node-info:hover { color: var(--accent); }
 .node-close:hover { color: var(--bad); }
-.node-body { height: calc(100% - 38px); padding: 10px; font-size: 11px; overflow: hidden; color: var(--muted); }
+.node-body { height: calc(100% - 38px); padding: 10px; font-size: calc(var(--preview-base-font-size) * 0.72); overflow: hidden; color: var(--muted); }
 .resize-handle { position: absolute; right: 3px; bottom: 3px; width: 17px; height: 17px; cursor: nwse-resize; border-radius: 4px; background: linear-gradient(135deg, transparent 45%, color-mix(in srgb, var(--muted) 60%, transparent) 46%, color-mix(in srgb, var(--muted) 60%, transparent) 55%, transparent 56%); }
 .preview-input { display: grid; gap: 7px; }
 .fake-control { min-height: 34px; border: 1px solid var(--line); background: color-mix(in srgb, var(--soft) 74%, transparent); color: var(--ink); border-radius: 10px; padding: 8px 9px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.fake-range-ruler { position: relative; min-height: 34px; margin: 0 10px; border: 0; border-radius: 10px; background: transparent; overflow: visible; }
+.fake-range-ruler::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 7px; transform: translateY(-50%); border: 1px solid color-mix(in srgb, var(--line) 78%, var(--muted)); border-radius: 999px; background: repeating-linear-gradient(to right, color-mix(in srgb, var(--muted) 26%, transparent) 0 1px, transparent 1px calc(10% - 1px)), color-mix(in srgb, var(--muted) 14%, var(--panel)); }
+.fake-range-ruler span:nth-child(1) { position: absolute; top: 50%; height: 7px; transform: translateY(-50%); border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 5px 13px color-mix(in srgb, var(--accent) 20%, transparent); }
+.fake-range-ruler span:nth-child(2), .fake-range-ruler span:nth-child(3) { position: absolute; top: 50%; width: 19px; height: 19px; transform: translate(-50%, -50%); border: 3px solid var(--panel); border-radius: 50%; background: var(--accent); box-shadow: 0 3px 10px rgba(15,23,42,.24); }
+.fake-range-single span:nth-child(1) { left: 0; right: 38%; }
+.fake-range-single span:nth-child(2) { left: 62%; }
+.fake-range-single span:nth-child(3) { display: none; }
+.fake-range-dual span:nth-child(1) { left: 28%; right: 24%; }
+.fake-range-dual span:nth-child(2) { left: 28%; }
+.fake-range-dual span:nth-child(3) { left: 76%; }
 .preview-metric { display: grid; gap: 4px; align-content: center; height: 100%; }
-.metric-value { font-size: 32px; font-weight: 950; color: var(--ink); letter-spacing: -.04em; }
+.metric-value { font-size: calc(var(--preview-base-font-size) * 2); font-weight: 950; color: var(--ink); letter-spacing: -.04em; }
 .preview-table { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: color-mix(in srgb, var(--panel) 94%, white 4%); }
 .preview-row { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
 .preview-row:last-child { border-bottom: 0; }
@@ -146,9 +157,16 @@ code, pre, textarea.code, .code-preview, .yaml-editor, .result-box { font-family
 .toast { position: fixed; right: 16px; bottom: 16px; z-index: 100; max-width: 430px; padding: 11px 13px; border-radius: 13px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); box-shadow: 0 16px 38px rgba(15,23,42,.18); font-size: 12px; }
 .toast.bad { color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--panel)); border-color: color-mix(in srgb, var(--bad) 36%, var(--line)); }
 .modal-backdrop { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 24px; background: rgba(15,23,42,.36); backdrop-filter: blur(6px); }
-.modal { position: relative; max-width: 900px; max-height: min(88vh, 900px); overflow: auto; border: 1px solid var(--line); border-radius: 20px; background: var(--panel); color: var(--ink); padding: 22px; box-shadow: 0 24px 64px rgba(15,23,42,.28); }
-.modal h1 { margin: 0 34px 14px 0; font-size: 22px; letter-spacing: -.03em; }
-.modal-close { position: absolute; right: 14px; top: 12px; border: 0; background: transparent; color: var(--muted); font-size: 24px; }
+.modal { position: relative; width: min(900px, calc(100vw - 48px)); max-height: min(88vh, 900px); overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr); border: 1px solid var(--line); border-radius: 20px; background: var(--panel); color: var(--ink); box-shadow: 0 24px 64px rgba(15,23,42,.28); }
+.modal-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding: 22px 22px 12px; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); background: var(--panel); }
+.modal h1 { margin: 0; font-size: 22px; letter-spacing: -.03em; }
+.modal-close { flex: 0 0 auto; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid color-mix(in srgb, var(--line) 70%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--panel) 90%, var(--soft)); color: var(--muted); font-size: 24px; line-height: 1; }
+.modal-close:hover { color: var(--ink); border-color: color-mix(in srgb, var(--accent) 28%, var(--line)); background: var(--accent-soft); }
+.modal-scroll { min-height: 0; overflow: auto; padding: 18px 22px 22px; border-radius: 0 0 20px 20px; scrollbar-gutter: stable; }
+.modal-scroll::-webkit-scrollbar { width: 12px; height: 12px; }
+.modal-scroll::-webkit-scrollbar-track { background: transparent; margin: 12px 0; }
+.modal-scroll::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--muted) 30%, transparent); border: 3px solid transparent; border-radius: 999px; background-clip: content-box; }
+.modal-scroll::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--muted) 48%, transparent); border: 3px solid transparent; background-clip: content-box; }
 .manual-html { font-size: 14px; line-height: 1.58; }
 .manual-html h1, .manual-html h2, .manual-html h3 { letter-spacing: -.02em; }
 .manual-html pre { white-space: pre-wrap; background: color-mix(in srgb, var(--soft) 78%, transparent); border: 1px solid var(--line); border-radius: 12px; padding: 12px; overflow: auto; }
@@ -241,3 +259,67 @@ code, pre, textarea.code, .code-preview, .yaml-editor, .result-box { font-family
 .dataset-row span { color: var(--muted); }
 .dataset-used { color: var(--accent); font-weight: 750; }
 .dataset-free { color: var(--muted); }
+.manual-html h1 {
+  margin: 0.8em 0 0.35em;
+  padding: 0;
+  border-bottom: 0;
+  background: transparent;
+  font-size: 1.45em;
+}
+
+/* Manual modal polish: keep the close button visible and clip scrolling inside rounded corners. */
+.modal {
+  width: min(900px, calc(100vw - 48px));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  padding: 0;
+}
+.modal-heading {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-right: 64px;
+}
+.modal-close {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+.modal-close:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--soft) 80%, transparent);
+}
+.modal-scroll {
+  overflow: auto;
+  border-radius: 0 0 20px 20px;
+  background-clip: padding-box;
+  clip-path: inset(0 round 0 0 20px 20px);
+  scrollbar-gutter: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--muted) 44%, transparent) transparent;
+}
+.manual-html {
+  min-height: 0;
+  overflow: visible;
+}
+
+/* Soft-wrapped code editor mode for Markdown, HTML, and webR snippets. */
+.code-editor-wrap.soft-wrap .code-highlight,
+.code-editor-wrap.soft-wrap .code-overlay {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+.code-editor-wrap.soft-wrap .code-highlight,
+.code-editor-wrap.soft-wrap .code-overlay {
+  overflow-x: hidden !important;
+}
+.manual-html pre { overflow: auto; border: 1px solid var(--line); border-radius: 12px; padding: 10px; background: color-mix(in srgb, var(--soft) 78%, transparent); }
+.manual-math-block { overflow: auto; border: 1px solid var(--line); border-radius: 12px; padding: 10px; background: color-mix(in srgb, var(--accent) 7%, var(--panel)); font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", "JetBrains Mono", monospace; }

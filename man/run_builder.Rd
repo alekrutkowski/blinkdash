@@ -14,5 +14,5 @@ run_builder(project_dir = getwd(), port = 3838, launch.browser = TRUE, data_env 
 Runs until the app is stopped. Invisibly returns the local URL when the server exits.
 }
 \description{
-Opens a local browser app. The GUI is a self-contained JavaScript application; R runs only as a localhost REST backend for local file import, project saving, snippet execution, R-memory import, and static export.
+Opens a local browser app. The GUI is a self-contained JavaScript application; R runs only as a localhost REST backend for local file import, project saving, snippet execution, R-memory import, static export, and compiled-dashboard preview.
 }

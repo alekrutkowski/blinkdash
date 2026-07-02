@@ -225,6 +225,11 @@ blink_builder_app <- function(project_dir, data_env = parent.frame()) {
     }, error = function(e) blink_error_response(conditionMessage(e), status = 500L))
   }
 
+  compiled_headers <- list(
+    "Cross-Origin-Opener-Policy" = "same-origin",
+    "Cross-Origin-Embedder-Policy" = "require-corp"
+  )
+
   list(
     call = function(req) {
       path <- URLdecode(req$PATH_INFO %||% "/")
@@ -237,6 +242,18 @@ blink_builder_app <- function(project_dir, data_env = parent.frame()) {
         if (grepl("(^|/)\\.\\.(/|$)", rel)) return(blink_http_response("Not found", status = 404L))
         return(blink_static_response(file.path(www, rel)))
       }
+      if (identical(path, "/compiled")) {
+        return(blink_http_response("", status = 302L, headers = list(Location = "/compiled/")))
+      }
+      if (startsWith(path, "/compiled/")) {
+        rel <- sub("^/compiled/", "", path)
+        rel <- gsub("\\\\", "/", rel)
+        if (!nzchar(rel)) rel <- "index.html"
+        if (grepl("(^|/)\\.\\.(/|$)", rel)) return(blink_http_response("Not found", status = 404L))
+        compiled_path <- file.path(current_dir(), "site", rel)
+        if (dir.exists(compiled_path)) compiled_path <- file.path(compiled_path, "index.html")
+        return(blink_static_response(compiled_path, headers = compiled_headers))
+      }
       blink_http_response("Not found", status = 404L)
     }
   )
@@ -244,7 +261,7 @@ blink_builder_app <- function(project_dir, data_env = parent.frame()) {
 
 #' Run the BlinkDash builder
 #'
-#' Opens a local browser app. The GUI is a self-contained JavaScript application; R runs only as a localhost REST backend for local file import, project saving, snippet execution, R-memory import, and static export.
+#' Opens a local browser app. The GUI is a self-contained JavaScript application; R runs only as a localhost REST backend for local file import, project saving, snippet execution, R-memory import, static export, and compiled-dashboard preview.
 #'
 #' @param project_dir Dashboard project directory.
 #' @param port Local port.
@@ -270,7 +287,7 @@ run_builder <- function(project_dir = getwd(), port = 3838, launch.browser = TRU
 
 #' Serve an exported dashboard locally
 #'
-#' Serves files with the cross-origin isolation headers preferred by webR. GitHub Pages cannot set arbitrary response headers for static files, so webR falls back to its PostMessage channel there.
+#' Serves exported dashboard files locally with the cross-origin isolation headers preferred by webR. GitHub Pages cannot set arbitrary response headers for static files, so webR falls back to its PostMessage channel there.
 #'
 #' @param path Directory containing an exported dashboard.
 #' @param port Local port.

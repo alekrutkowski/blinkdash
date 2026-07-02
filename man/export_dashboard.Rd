@@ -14,5 +14,5 @@ export_dashboard(project, out_dir = "site", include_workflow = TRUE, overwrite =
 The output directory, invisibly.
 }
 \description{
-Exports HTML, CSS, JavaScript, and embedded data for a static dashboard.
+Exports HTML, CSS, JavaScript, embedded data, and optional GitHub Pages deployment metadata for a static dashboard.
 }

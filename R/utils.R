@@ -223,10 +223,10 @@ blink_read_json_body <- function(req) {
   jsonlite::fromJSON(txt, simplifyVector = FALSE)
 }
 
-blink_static_response <- function(path) {
+blink_static_response <- function(path, headers = list()) {
   if (!file.exists(path) || dir.exists(path)) return(blink_http_response("Not found", status = 404L))
   body <- readBin(path, what = "raw", n = file.info(path)$size)
-  blink_http_response(body = body, status = 200L, type = blink_content_type(path))
+  blink_http_response(body = body, status = 200L, type = blink_content_type(path), headers = headers)
 }
 
 blink_guess_dataset_name <- function(path) {

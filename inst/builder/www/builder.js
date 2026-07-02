@@ -9,9 +9,18 @@
     aurora: { label: 'Aurora light', dark: false, accent: '#4f46e5', accent2: '#0ea5e9', bg: '#f8fafc', panel: 'rgba(255,255,255,.95)', ink: '#0f172a', muted: '#64748b', line: '#e2e8f0' },
     paper: { label: 'Paper light', dark: false, accent: '#0f766e', accent2: '#ca8a04', bg: '#fbfaf7', panel: 'rgba(255,255,255,.97)', ink: '#1f2937', muted: '#6b7280', line: '#e5e7eb' },
     berry: { label: 'Berry light', dark: false, accent: '#be185d', accent2: '#7c3aed', bg: '#fff7fb', panel: 'rgba(255,255,255,.96)', ink: '#3b0a24', muted: '#7f5a6d', line: '#f5d0e2' },
+    slate: { label: 'Slate light', dark: false, accent: '#334155', accent2: '#0284c7', bg: '#f1f5f9', panel: 'rgba(255,255,255,.96)', ink: '#0f172a', muted: '#64748b', line: '#cbd5e1' },
+    mint: { label: 'Mint light', dark: false, accent: '#059669', accent2: '#14b8a6', bg: '#f0fdfa', panel: 'rgba(255,255,255,.96)', ink: '#064e3b', muted: '#4b8074', line: '#ccfbf1' },
+    sand: { label: 'Sand light', dark: false, accent: '#b45309', accent2: '#d97706', bg: '#fffbeb', panel: 'rgba(255,251,235,.96)', ink: '#3f2f1c', muted: '#8a6d4b', line: '#fde68a' },
+    ocean: { label: 'Ocean light', dark: false, accent: '#0369a1', accent2: '#0891b2', bg: '#f0f9ff', panel: 'rgba(255,255,255,.96)', ink: '#082f49', muted: '#57798c', line: '#bae6fd' },
+    lavender: { label: 'Lavender light', dark: false, accent: '#7c3aed', accent2: '#db2777', bg: '#faf5ff', panel: 'rgba(255,255,255,.96)', ink: '#2e1065', muted: '#7c6a9c', line: '#e9d5ff' },
     graphite: { label: 'Graphite dark', dark: true, accent: '#60a5fa', accent2: '#22d3ee', bg: '#0b1220', panel: 'rgba(15,23,42,.94)', ink: '#e5edf9', muted: '#94a3b8', line: '#263347' },
     midnight: { label: 'Midnight dark', dark: true, accent: '#a78bfa', accent2: '#34d399', bg: '#09090f', panel: 'rgba(20,20,32,.95)', ink: '#f5f3ff', muted: '#a1a1aa', line: '#2e2e42' },
-    forest: { label: 'Forest dark', dark: true, accent: '#34d399', accent2: '#fbbf24', bg: '#07130f', panel: 'rgba(9,29,23,.94)', ink: '#ecfdf5', muted: '#a7f3d0', line: '#1f4b3f' }
+    forest: { label: 'Forest dark', dark: true, accent: '#34d399', accent2: '#fbbf24', bg: '#07130f', panel: 'rgba(9,29,23,.94)', ink: '#ecfdf5', muted: '#a7f3d0', line: '#1f4b3f' },
+    dusk: { label: 'Dusk dark', dark: true, accent: '#fb7185', accent2: '#a78bfa', bg: '#111827', panel: 'rgba(31,41,55,.94)', ink: '#fdf2f8', muted: '#d1a3b8', line: '#4b5563' },
+    ember: { label: 'Ember dark', dark: true, accent: '#f97316', accent2: '#ef4444', bg: '#1c0f0a', panel: 'rgba(39,20,14,.94)', ink: '#fff7ed', muted: '#fed7aa', line: '#7c2d12' },
+    lagoon: { label: 'Lagoon dark', dark: true, accent: '#2dd4bf', accent2: '#38bdf8', bg: '#061a20', panel: 'rgba(8,35,42,.94)', ink: '#ecfeff', muted: '#99f6e4', line: '#155e75' },
+    grape: { label: 'Grape dark', dark: true, accent: '#c084fc', accent2: '#f472b6', bg: '#160b24', panel: 'rgba(31,16,49,.94)', ink: '#faf5ff', muted: '#d8b4fe', line: '#581c87' }
   };
   var FONTS = {
     Inter: { label: 'Inter', css: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;800;900&display=swap', family: 'Inter, system-ui, sans-serif' },
@@ -44,18 +53,18 @@
     { shelf: 'Inputs', type: 'select', role: 'input', icon: '▾', title: 'Select', desc: 'Simple single-choice dropdown' },
     { shelf: 'Inputs', type: 'multiselect', role: 'input', icon: '▦', title: 'Multi-select', desc: 'Native many-choice select' },
     { shelf: 'Inputs', type: 'slider', role: 'input', icon: '↔', title: 'Slider', desc: 'Numeric threshold filter' },
-    { shelf: 'Inputs', type: 'range', role: 'input', icon: '⟷', title: 'Range', desc: 'Numeric minimum and maximum' },
+    { shelf: 'Inputs', type: 'range', role: 'input', icon: '⟷', title: 'Range', desc: 'Dual-thumb numeric ruler' },
     { shelf: 'Inputs', type: 'date', role: 'input', icon: '📅', title: 'Date filter', desc: 'One date comparator' },
     { shelf: 'Inputs', type: 'daterange', role: 'input', icon: '⧉', title: 'Date range', desc: 'Start and end date filter' },
     { shelf: 'Inputs', type: 'checkbox', role: 'input', icon: '☑', title: 'Checkboxes', desc: 'Many categorical values' },
     { shelf: 'Inputs', type: 'radio', role: 'input', icon: '◉', title: 'Radio', desc: 'One categorical value' },
     { shelf: 'Inputs', type: 'search', role: 'input', icon: '⌕', title: 'Search', desc: 'Fast row search' },
     { shelf: 'Inputs', type: 'text', role: 'input', icon: 'T', title: 'Text filter', desc: 'Contains text match' },
-    { shelf: 'Inputs', type: 'number', role: 'input', icon: '#', title: 'Number filter', desc: 'Numeric comparator' },
+    { shelf: 'Inputs', type: 'number', role: 'input', icon: '#', title: 'Number filter', desc: 'Numeric comparator with step' },
     { shelf: 'Inputs', type: 'toggle', role: 'input', icon: '⏻', title: 'Toggle', desc: 'Boolean TRUE/FALSE filter' },
     { shelf: 'Inputs', type: 'button', role: 'input', icon: '●', title: 'Button', desc: 'Reset or trigger input' },
     { shelf: 'Indicators', type: 'metric', role: 'output', icon: '42', title: 'Metric', desc: 'KPI number card' },
-    { shelf: 'Tables', type: 'table', role: 'output', icon: '▤', title: 'Table', desc: 'Sortable paged table' },
+    { shelf: 'Tables', type: 'table', role: 'output', icon: '▤', title: 'Table', desc: 'Sortable table with CSV' },
     { shelf: 'Plots', type: 'scatter', role: 'output', icon: '•', title: 'Scatter', desc: 'Numeric x-y plot' },
     { shelf: 'Plots', type: 'line', role: 'output', icon: '⌁', title: 'Line', desc: 'Series or trend with legend' },
     { shelf: 'Plots', type: 'bar', role: 'output', icon: '▥', title: 'Bar', desc: 'Aggregated categories' },
@@ -63,7 +72,7 @@
     { shelf: 'Plots', type: 'boxplot', role: 'output', icon: '▣', title: 'Box plot', desc: 'Grouped spread' },
     { shelf: 'Plots', type: 'heatmap', role: 'output', icon: '▦', title: 'Heatmap', desc: 'Two-way matrix' },
     { shelf: 'Plots', type: 'pie', role: 'output', icon: '◔', title: 'Pie', desc: 'Part-to-whole chart' },
-    { shelf: 'Narrative', type: 'markdown', role: 'output', icon: 'M', title: 'Markdown', desc: 'Markdown rendered as styled HTML' },
+    { shelf: 'Narrative', type: 'markdown', role: 'output', icon: 'M', title: 'Markdown', desc: 'Text, code, math, diagrams' },
     { shelf: 'Narrative', type: 'html', role: 'output', icon: '<>', title: 'HTML', desc: 'Trusted markup, no guaranteed JS' },
     { shelf: 'R and webR', type: 'webr', role: 'output', icon: 'R', title: 'webR processor', desc: 'Browser-side R, linkable to outputs' },
     { shelf: 'R and webR', type: 'rplot', role: 'output', icon: '▧', title: 'R plot viewer', desc: 'Displays SVG plots from webR' }
@@ -74,28 +83,28 @@
     select: 'Select is a native single-choice categorical filter. It is best for short factor or character columns.',
     multiselect: 'Multi-select is a native browser multi-choice list. It filters categorical fields. For prettier interaction, prefer Selectize.',
     slider: 'Slider filters a numeric column with a comparator such as <= or >=. Use it for R integer, numeric, double, or float-like columns.',
-    range: 'Range filters a numeric column between two values. Use it for continuous numeric variables.',
+    range: 'Range filters a numeric column between two values using one dual-thumb ruler. Use it for continuous numeric variables.',
     date: 'Date filter compares one date to a date-like column. ISO dates such as YYYY-MM-DD work best.',
     daterange: 'Date range filters rows whose date-like column lies between a start and end date.',
     checkbox: 'Checkboxes are categorical filters that allow many values. They work best for factors and character vectors.',
     radio: 'Radio inputs are categorical filters that allow exactly one value.',
     search: 'Search scans all columns when the field is *, or only one selected column. It is useful for quick free-text narrowing.',
     text: 'Text filter keeps rows where a selected text-like column contains the typed phrase.',
-    number: 'Number filter compares a numeric column to a typed number.',
+    number: 'Number filter compares a numeric column to a typed number. Configure its minimum, maximum, and step in the inspector.',
     toggle: 'Toggle filters a Boolean/logical column. TRUE rows are shown when it is on, FALSE rows when it is off.',
     button: 'Button can reset filters or act as a simple trigger in advanced wiring.',
     metric: 'Metric summarizes filtered rows. Use count, sum, mean, quantiles, and similar aggregations.',
-    table: 'Table displays filtered rows with sorting, paging, and table-level search.',
-    scatter: 'Scatter shows two numeric columns. Optional color groups should be categorical.',
+    table: 'Table displays filtered rows with sorting, paging, table-level search, and CSV download of the current table data.',
+    scatter: 'Scatter shows two numeric columns. Optional categorical color groups create legends in the card and full-screen view.',
     line: 'Line shows a numeric y value over a numeric, categorical, or date-like x axis. A color field creates grouped lines and a legend.',
-    bar: 'Bar groups by a categorical x field and aggregates a numeric y field. Aggregates include quartiles, quintiles, and deciles.',
+    bar: 'Bar groups by a categorical x field and aggregates a numeric y field. Aggregates include quartiles, quintiles, and deciles. Configure single or category colors, category or value sorting, and hover values in the inspector.',
     histogram: 'Histogram shows the distribution of one numeric field. Bars touch because adjacent bins share boundaries.',
     boxplot: 'Box plot shows spread of a numeric field by categorical groups.',
     heatmap: 'Heatmap shows counts or aggregate values across two categorical axes.',
     pie: 'Pie shows part-to-whole category summaries. Use sparingly for few categories.',
-    markdown: 'Markdown is for explanatory text. It is rendered as styled HTML. It can use upstream input values with {{input_id}} or {{param.input_id}} placeholders when arrows connect those inputs to this widget.',
+    markdown: 'Markdown is for explanatory text. It is rendered as styled HTML with fenced code blocks, math, and diagram support. It can use upstream input values with {{input_id}} or {{param.input_id}} placeholders when arrows connect those inputs to this widget.',
     html: 'HTML is for trusted custom markup. It is rendered directly, so only use content you control. It can use upstream input values with {{input_id}} or {{param.input_id}} placeholders. JavaScript script tags inserted into this block are not intentionally executed; inline event handlers may work in some browsers but are discouraged and not guaranteed. For reproducible dashboards, keep logic in widgets or webR.',
-    webr: 'webR runs R in the viewer\'s browser. bd_data is an R data.frame made from the widget\'s selected dataset after the upstream filters connected to this webR node have been applied. bd_state is a named R list containing every dashboard input value. bd_params is a named R list containing only the directly connected upstream input values, named by widget id. Put extra package names in Packages, comma-separated; BlinkDash asks webR to install and attach them before running your code. A webR widget has both input and output handles: it receives input parameters and can feed Markdown, HTML, Table, or R plot viewer widgets.',
+    webr: 'webR runs R in the viewer\'s browser. bd_data is an R data.frame made from the widget\'s selected dataset after the upstream filters connected to this webR node have been applied. bd_state is a named R list containing every dashboard input value. bd_params is a named R list containing only the directly connected upstream input values, named by widget id. Put extra package names in Packages, comma-separated; BlinkDash asks webR to install and attach them before running your code. A webR widget has both input and output handles: it receives input parameters and can feed Markdown, HTML, Table, or R plot viewer widgets. The editor supports optional soft wrapping.',
     rplot: 'R plot viewer displays a plot produced by an upstream webR widget. Draw an arrow from a webR processor to this viewer. BlinkDash asks webR to use grDevices::svg() first for crisp vector output, then falls back to bitmap capture only if SVG fails. For ggplot2, lattice, and grid plots, assign the plot to an object and call print(p) explicitly. Installing packages such as ggplot2 in webR can take a noticeable time the first time a viewer opens the dashboard.'
   };
 
@@ -180,6 +189,8 @@
     m.theme.dashboardName = m.theme.dashboardName || m.theme.name;
     m.theme.builderName = m.theme.builderName || m.theme.name;
     m.theme.font = m.theme.font || 'Inter';
+    if (m.theme.baseFontSize == null) m.theme.baseFontSize = Number(m.theme.fontSize || 16);
+    if (!Number.isFinite(Number(m.theme.baseFontSize)) || Number(m.theme.baseFontSize) <= 0) m.theme.baseFontSize = 16;
     m.theme.plotPalette = m.theme.plotPalette || 'okabe';
     m.format = m.format || {};
     m.format.decimal = m.format.decimal || '.';
@@ -190,6 +201,19 @@
     if (m.export.showGeneratedBy == null) m.export.showGeneratedBy = true;
     m.builder = m.builder || {};
     if (m.builder.helpDismissed == null) m.builder.helpDismissed = false;
+    m.widgets.forEach(function (w) {
+      if (w && ['markdown', 'html', 'webr'].indexOf(w.type) >= 0 && w.softWrap == null) w.softWrap = true;
+      if (w && w.type === 'number') {
+        var rg = rangeFor(w.data || firstDataset(), w.field);
+        if (w.min == null) w.min = rg[0];
+        if (w.max == null) w.max = rg[1];
+        if (w.step == null) w.step = sensibleStep(rg);
+      }
+      if (w && w.type === 'metric' && w.title != null) {
+        w.label = w.title || w.label || '';
+        delete w.title;
+      }
+    });
     state.manifest = m;
     state.helpDismissed = !!m.builder.helpDismissed;
   }
@@ -224,15 +248,29 @@
   function rangeFor(name, field) { var vals = valuesFor(name, field).map(Number).filter(Number.isFinite); if (!vals.length) return [0, 100]; return [Math.min.apply(null, vals), Math.max.apply(null, vals)]; }
   function dateRangeFor(name, field) { var vals = valuesFor(name, field).filter(isDateLike).map(function (x) { return String(x).slice(0, 10); }).sort(); if (!vals.length) return ['', '']; return [vals[0], vals[vals.length - 1]]; }
 
+  function baseFontScale() {
+    var size = Number(state.manifest && state.manifest.theme && state.manifest.theme.baseFontSize || 16);
+    if (!Number.isFinite(size) || size <= 0) size = 16;
+    return Math.max(0.9, Math.min(1.45, size / 16));
+  }
+
+  function scaledSize(width, height) {
+    var s = baseFontScale();
+    return { width: Math.round(width * Math.max(1, s * 0.96)), height: Math.round(height * s) };
+  }
+
   function defaultSize(type) {
-    if (type === 'metric') return { width: 250, height: 126 };
-    if (type === 'table') return { width: 620, height: 335 };
-    if (PLOT_TYPES.has(type) || type === 'rplot') return { width: 520, height: 350 };
-    if (type === 'webr') return { width: 470, height: 360 };
-    if (type === 'markdown' || type === 'html') return { width: 470, height: 230 };
-    if (type === 'daterange') return { width: 360, height: 142 };
-    if (type === 'checkbox' || type === 'radio' || type === 'selectize') return { width: 300, height: 150 };
-    return { width: 295, height: type === 'button' ? 104 : 136 };
+    if (type === 'metric') return scaledSize(330, 210);
+    if (type === 'table') return scaledSize(760, 640);
+    if (PLOT_TYPES.has(type) || type === 'rplot') return scaledSize(560, 430);
+    if (type === 'webr') return scaledSize(540, 440);
+    if (type === 'markdown' || type === 'html') return scaledSize(520, 300);
+    if (type === 'daterange') return scaledSize(380, 172);
+    if (type === 'checkbox' || type === 'radio') return scaledSize(330, 220);
+    if (type === 'selectize' || type === 'multiselect') return scaledSize(330, 210);
+    if (type === 'range') return scaledSize(340, 190);
+    if (type === 'slider' || type === 'number' || type === 'date' || type === 'search' || type === 'text' || type === 'select' || type === 'toggle') return scaledSize(320, 148);
+    return scaledSize(320, type === 'button' ? 116 : 150);
   }
 
   function defaultWidget(type) {
@@ -259,7 +297,7 @@
     if (type === 'range') return Object.assign(base, { label: 'Range of ' + (num || 'value'), field: num, min: rg[0], max: rg[1], step: sensibleStep(rg), default: [rg[0], rg[1]] });
     if (type === 'search') return Object.assign(base, { label: 'Search rows', field: '*', placeholder: 'Type to filter...' });
     if (type === 'text') return Object.assign(base, { label: 'Text contains', field: cat || '*', placeholder: 'Contains...' });
-    if (type === 'number') return Object.assign(base, { label: 'Number filter', field: num, operator: '>=', default: rg[0] });
+    if (type === 'number') return Object.assign(base, { label: 'Number filter', field: num, min: rg[0], max: rg[1], step: sensibleStep(rg), operator: '>=', default: rg[0] });
     if (type === 'date') return Object.assign(base, { label: 'Date filter', field: date, operator: '>=', default: dr[0] });
     if (type === 'daterange') return Object.assign(base, { label: 'Date range', field: date, default: dr });
     if (type === 'toggle') return Object.assign(base, { label: 'Toggle ' + (bool || 'logical'), field: bool, default: true });
@@ -268,14 +306,14 @@
     if (type === 'table') return Object.assign(base, { title: 'Data table', columns: cols, pageSize: 12 });
     if (type === 'scatter') return Object.assign(base, { title: 'Scatter plot', x: num, y: num2, color: cat, palette: state.manifest.theme.plotPalette || 'okabe' });
     if (type === 'line') return Object.assign(base, { title: 'Line plot', x: cols[0] || num, y: num, color: cat, palette: state.manifest.theme.plotPalette || 'okabe' });
-    if (type === 'bar') return Object.assign(base, { title: 'Bar chart', x: cat, y: num, aggregate: 'mean', palette: state.manifest.theme.plotPalette || 'okabe' });
+    if (type === 'bar') return Object.assign(base, { title: 'Bar chart', x: cat, y: num, aggregate: 'mean', palette: state.manifest.theme.plotPalette || 'okabe', colorMode: 'category', barSort: 'category', showHoverValues: true });
     if (type === 'histogram') return Object.assign(base, { title: 'Histogram', x: num, bins: 20, palette: state.manifest.theme.plotPalette || 'okabe' });
     if (type === 'boxplot') return Object.assign(base, { title: 'Box plot', x: cat, y: num, palette: state.manifest.theme.plotPalette || 'okabe' });
     if (type === 'heatmap') return Object.assign(base, { title: 'Heatmap', x: cat, y: cols[1] || cat, value: num, aggregate: 'mean', palette: state.manifest.theme.plotPalette || 'okabe' });
     if (type === 'pie') return Object.assign(base, { title: 'Pie chart', x: cat, y: num, aggregate: 'count', palette: state.manifest.theme.plotPalette || 'okabe' });
-    if (type === 'markdown') return Object.assign(base, { title: 'Notes', markdown: '### Notes\nWrite Markdown here.' });
-    if (type === 'html') return Object.assign(base, { title: 'HTML', html: '<div class="note">Trusted HTML goes here.</div>' });
-    if (type === 'webr') return Object.assign(base, { title: 'R snippet', code: '# bd_data is a data.frame; bd_state and bd_params are named lists\nsummary(bd_data)', outputType: 'auto', visible: true, autoRun: true, consoleTheme: 'dark', packages: '' });
+    if (type === 'markdown') return Object.assign(base, { title: 'Notes', markdown: '### Notes\nWrite Markdown here.', softWrap: true });
+    if (type === 'html') return Object.assign(base, { title: 'HTML', html: '<div class="note">Trusted HTML goes here.</div>', softWrap: true });
+    if (type === 'webr') return Object.assign(base, { title: 'R snippet', code: '# bd_data is a data.frame; bd_state and bd_params are named lists\nsummary(bd_data)', outputType: 'auto', visible: true, autoRun: true, consoleTheme: 'dark', packages: '', softWrap: true });
     if (type === 'rplot') return Object.assign(base, { title: 'R plot viewer', source: '', note: 'Link a webR processor to this viewer.' });
     return base;
   }
@@ -333,6 +371,9 @@
     var r = document.documentElement.style;
     r.setProperty('--ink', t.ink); r.setProperty('--muted', t.muted); r.setProperty('--soft', t.bg); r.setProperty('--panel', t.panel); r.setProperty('--line', t.line); r.setProperty('--accent', t.accent); r.setProperty('--accent-2', t.accent2); r.setProperty('--accent-soft', t.dark ? 'rgba(96,165,250,.14)' : 'rgba(79,70,229,.10)');
     document.documentElement.dataset.theme = t.dark ? 'dark' : 'light';
+    var baseSize = Number(state.manifest.theme.baseFontSize || 16);
+    if (!Number.isFinite(baseSize) || baseSize <= 0) baseSize = 16;
+    r.setProperty('--preview-base-font-size', baseSize + 'px');
     var f = FONTS[state.manifest.theme.font || 'Inter'] || FONTS.Inter;
     r.setProperty('--font-ui', f.family);
     ensureFontLink(f);
@@ -354,7 +395,7 @@
       '<div class="mode-switch"><button class="seg ' + (state.mode === 'visual' ? 'active' : '') + '" data-mode="visual">Visual</button><button class="seg ' + (state.mode === 'yaml' ? 'active' : '') + '" data-mode="yaml">YAML</button></div>' +
       '<div class="top-actions"><span class="status-pill ' + (state.dirty ? 'dirty' : '') + '"><span class="status-dot"></span>' + (state.dirty ? 'Unsaved' : 'Saved in memory') + '</span>' +
       '<button class="btn small" id="undo-btn" ' + (!state.history.length ? 'disabled' : '') + '>Undo</button><button class="btn small" id="redo-btn" ' + (!state.future.length ? 'disabled' : '') + '>Redo</button>' +
-      '<button class="btn" id="manual-btn">Manual</button><button class="btn" id="open-prompt-btn">Open</button><button class="btn soft" id="save-as-prompt-btn">Save as</button><button class="btn soft" id="save-btn">Save YAML</button><button class="btn primary" id="export-btn">Export site</button></div></header>';
+      '<button class="btn" id="manual-btn">Manual</button><button class="btn" id="open-prompt-btn">Open</button><button class="btn soft" id="save-as-prompt-btn">Save as</button><button class="btn soft" id="save-btn">Save YAML</button><button class="btn primary" id="compile-view-btn">Compile and view</button><button class="btn soft" id="export-btn">Export site</button></div></header>';
   }
   function renderVisualMode() { return '<div class="workspace" id="workspace">' + renderShelf() + renderCanvas() + '<div class="inspector-splitter" id="inspector-splitter" title="Drag to resize the Inspector"></div>' + renderInspector() + '</div>'; }
   function renderYamlMode() {
@@ -395,9 +436,14 @@
       var txt = w.field === '*' ? 'All columns' : (w.field || 'Choose a field');
       if (w.type === 'button') txt = w.action || 'reset';
       var tag = w.type === 'toggle' ? 'Boolean/logical field' : w.type === 'daterange' || w.type === 'date' ? 'Date-like field' : ['slider', 'range', 'number'].indexOf(w.type) >= 0 ? 'Numeric field' : 'Categorical/text field';
-      return '<div class="preview-input"><div><strong>' + esc(w.label || w.title || itemFor(w.type).title) + '</strong></div><div class="fake-control">' + esc(txt) + '</div><div>' + esc(tag) + ' · data: ' + esc(w.data || firstDataset()) + '</div></div>';
+      var control = w.type === 'range'
+        ? '<div class="fake-range-ruler fake-range-dual"><span></span><span></span><span></span></div>'
+        : w.type === 'slider'
+          ? '<div class="fake-range-ruler fake-range-single"><span></span><span></span><span></span></div>'
+          : '<div class="fake-control">' + esc(txt) + '</div>';
+      return '<div class="preview-input"><div><strong>' + esc(w.label || w.title || itemFor(w.type).title) + '</strong></div>' + control + '<div>' + esc(tag) + ' · data: ' + esc(w.data || firstDataset()) + '</div></div>';
     }
-    if (w.type === 'metric') return '<div class="preview-metric"><div>' + esc(w.label || 'Metric') + '</div><div class="metric-value">123</div><div>' + esc((w.measure && w.measure.op) || 'count') + (w.suffix ? ' · ' + esc(w.suffix) : '') + '</div></div>';
+    if (w.type === 'metric') return '<div class="preview-metric"><div>' + esc(w.title || w.label || 'Metric') + '</div><div class="metric-value">123</div><div>' + esc((w.measure && w.measure.op) || 'count') + (w.suffix ? ' · ' + esc(w.suffix) : '') + '</div></div>';
     if (w.type === 'table') return '<div class="preview-table"><div class="preview-row"><div class="preview-cell"><b>' + esc((w.columns || colsFor(w.data))[0] || 'col1') + '</b></div><div class="preview-cell"><b>' + esc((w.columns || colsFor(w.data))[1] || 'col2') + '</b></div><div class="preview-cell"><b>' + esc((w.columns || colsFor(w.data))[2] || 'col3') + '</b></div></div><div class="preview-row"><div class="preview-cell">...</div><div class="preview-cell">...</div><div class="preview-cell">...</div></div><div class="preview-row"><div class="preview-cell">...</div><div class="preview-cell">...</div><div class="preview-cell">...</div></div></div>';
     if (PLOT_TYPES.has(w.type)) return '<div class="plot-preview"><strong>' + esc(w.title || itemFor(w.type).title) + '</strong><div class="preview-plot abstract ' + esc(w.type) + '"><span></span><span></span><span></span><span></span><span></span><span></span></div><small>' + esc(w.type) + ' · palette ' + esc(w.palette || (state.manifest.theme && state.manifest.theme.plotPalette) || 'okabe') + '</small></div>';
     if (w.type === 'webr') return '<div><strong>' + esc(w.title || 'R snippet') + '</strong><pre class="code-preview">' + esc(w.code || 'summary(bd_data)') + '</pre><p>' + (w.visible === false ? 'Hidden in export, still auto-runs.' : 'Visible and auto-runs in export.') + '</p></div>';
@@ -422,6 +468,7 @@
     html += selectField('Builder theme', 'project.theme.builderName', m.theme.builderName || m.theme.name || 'aurora', objectOptions(THEMES));
     html += selectField('Exported dashboard theme', 'project.theme.dashboardName', m.theme.dashboardName || m.theme.name || 'aurora', objectOptions(THEMES));
     html += selectField('Font', 'project.theme.font', m.theme.font || 'Inter', objectOptions(FONTS));
+    html += field('Exported dashboard base font size, px', 'number', 'project.theme.baseFontSize', m.theme.baseFontSize || 16);
     html += selectField('Default plot palette', 'project.theme.plotPalette', m.theme.plotPalette || 'okabe', objectOptions(PALETTES));
     html += selectField('Decimal separator', 'project.format.decimal', (m.format && m.format.decimal) || '.', [['.', 'Decimal dot: 1.23'], [',', 'Decimal comma: 1,23']]);
     html += '<div class="section-title">Generated text and badge</div>';
@@ -448,7 +495,7 @@
     if (webROwned) {
       html += '<div class="help-box"><b>Value supplied by webR</b><br>This component is connected to a webR processor, so its content is obtained from the upstream R result. Local data, Markdown, HTML, table-column, and plot settings are intentionally disabled here. Edit the upstream webR widget or remove the arrow to configure this component manually.</div>';
     } else {
-      html += field('Label or title', 'text', 'widget.labelTitle', w.label || w.title || '');
+      html += field('Label or title', 'text', 'widget.labelTitle', (w.role === 'input' || w.type === 'metric') ? (w.label || w.title || '') : (w.title || w.label || ''));
       if (w.type !== 'button') html += selectField('Dataset', 'widget.data', w.data || firstDataset(), datasets());
     }
     if (!webROwned && w.role === 'input') {
@@ -458,16 +505,28 @@
       else html += selectField('Categorical/text field', 'widget.field', w.field || '', ['*'].concat(w.type === 'search' ? cols : (cats.length ? cats : cols)));
       if (w.type === 'selectize') html += checkboxField('Allow multiple values', 'widget.multiple', w.multiple !== false);
       if (['slider', 'number', 'date'].indexOf(w.type) >= 0) html += selectField('Operator', 'widget.operator', w.operator || '<=', ['<=', '>=', '==', '!=', '<', '>']);
-      if (['slider', 'range'].indexOf(w.type) >= 0) html += '<div class="field-row">' + field('Minimum', 'number', 'widget.min', w.min) + field('Maximum', 'number', 'widget.max', w.max) + '</div>' + field('Step', 'number', 'widget.step', w.step || 1);
+      if (['slider', 'range', 'number'].indexOf(w.type) >= 0) { var irg = rangeFor(w.data || firstDataset(), w.field); html += '<div class="field-row">' + field('Minimum', 'number', 'widget.min', w.min == null ? irg[0] : w.min) + field('Maximum', 'number', 'widget.max', w.max == null ? irg[1] : w.max) + '</div>' + field('Step', 'number', 'widget.step', w.step || sensibleStep(irg)); }
       if (w.placeholder != null || ['search', 'text'].indexOf(w.type) >= 0) html += field('Placeholder', 'text', 'widget.placeholder', w.placeholder || '');
     } else if (!webROwned) {
       if (w.type === 'metric') { html += selectField('Metric operation', 'widget.measure.op', (w.measure && w.measure.op) || 'count', AGGREGATES); html += selectField('Metric field', 'widget.measure.field', (w.measure && w.measure.field) || '', [''].concat(nums)); html += field('Digits', 'number', 'widget.digits', w.digits == null ? 1 : w.digits) + field('Suffix', 'text', 'widget.suffix', w.suffix || ''); }
       if (w.type === 'table') html += field('Page size', 'number', 'widget.pageSize', w.pageSize || 12) + field('Columns, comma-separated', 'text', 'widget.columnsText', (w.columns || cols).join(', '));
-      if (PLOT_TYPES.has(w.type)) { html += selectField('Palette for this plot', 'widget.palette', w.palette || (state.manifest.theme && state.manifest.theme.plotPalette) || 'okabe', objectOptions(PALETTES)); html += selectField('X field', 'widget.x', w.x || '', cols); if (w.type !== 'histogram') html += selectField('Y field', 'widget.y', w.y || '', nums.length ? nums : cols); if (['scatter', 'line'].indexOf(w.type) >= 0) html += selectField('Color field', 'widget.color', w.color || '', [''].concat(cols)); if (['bar', 'heatmap', 'pie'].indexOf(w.type) >= 0) html += selectField('Aggregate', 'widget.aggregate', w.aggregate || 'count', AGGREGATES); if (w.type === 'histogram') html += rangeField('Number of bins', 'widget.bins', w.bins || 20, 2, 120, 1); }
-      if (w.type === 'markdown') html += '<div class="help-box">Use Markdown. With incoming arrows from inputs, insert their values as <code>{{input_id}}</code> or <code>{{param.input_id}}</code>.</div>' + codeArea('Markdown', 'widget.markdown', w.markdown || '', 10, 'markdown');
-      if (w.type === 'html') html += '<div class="help-box">Trusted HTML is rendered directly. With incoming arrows from inputs, insert values as <code>{{input_id}}</code> or <code>{{param.input_id}}</code>. <code>&lt;script&gt;</code> tags inserted inside this block are not intentionally executed. Keep JavaScript out of HTML widgets; use widget wiring or webR for logic.</div>' + codeArea('Trusted HTML', 'widget.html', w.html || '', 10, 'html');
+      if (PLOT_TYPES.has(w.type)) {
+        html += selectField('Palette for this plot', 'widget.palette', w.palette || (state.manifest.theme && state.manifest.theme.plotPalette) || 'okabe', objectOptions(PALETTES));
+        html += selectField('X field', 'widget.x', w.x || '', cols);
+        if (w.type !== 'histogram') html += selectField('Y field', 'widget.y', w.y || '', nums.length ? nums : cols);
+        if (['scatter', 'line'].indexOf(w.type) >= 0) html += selectField('Color field', 'widget.color', w.color || '', [''].concat(cols));
+        if (['bar', 'heatmap', 'pie'].indexOf(w.type) >= 0) html += selectField('Aggregate', 'widget.aggregate', w.aggregate || 'count', AGGREGATES);
+        if (w.type === 'bar') {
+          html += selectField('Bar colors', 'widget.colorMode', w.colorMode || w.barColorMode || 'category', [['category', 'Different colors by category'], ['single', 'Same color for all bars']]);
+          html += selectField('Sort bars', 'widget.barSort', w.barSort || w.sortBars || 'category', [['category', 'By X axis categories'], ['value_desc', 'By size, decreasing'], ['value_asc', 'By size, increasing']]);
+          html += checkboxField('Show values when hovering over bars', 'widget.showHoverValues', w.showHoverValues !== false);
+        }
+        if (w.type === 'histogram') html += rangeField('Number of bins', 'widget.bins', w.bins || 20, 2, 120, 1);
+      }
+      if (w.type === 'markdown') html += '<div class="help-box">Use Markdown, including fenced code blocks, math expressions, and Mermaid-style diagram blocks. With incoming arrows from inputs, insert their values as <code>{{input_id}}</code> or <code>{{param.input_id}}</code>.</div>' + checkboxField('Soft wrap code editor', 'widget.softWrap', w.softWrap !== false) + codeArea('Markdown', 'widget.markdown', w.markdown || '', 10, 'markdown', w.softWrap !== false);
+      if (w.type === 'html') html += '<div class="help-box">Trusted HTML is rendered directly. With incoming arrows from inputs, insert values as <code>{{input_id}}</code> or <code>{{param.input_id}}</code>. <code>&lt;script&gt;</code> tags inserted inside this block are not intentionally executed. Keep JavaScript out of HTML widgets; use widget wiring or webR for logic.</div>' + checkboxField('Soft wrap code editor', 'widget.softWrap', w.softWrap !== false) + codeArea('Trusted HTML', 'widget.html', w.html || '', 10, 'html', w.softWrap !== false);
       if (w.type === 'rplot') html += '<div class="help-box">This viewer displays an upstream webR plot. Draw an arrow from a webR processor to this widget. Use the webR widget result type <code>plot</code>, or connect a webR processor to this R plot viewer so BlinkDash forces plot mode. For ggplot2/lattice/grid, use <code>p &lt;- ...</code> followed by <code>print(p)</code>.</div>';
-      if (w.type === 'webr') { html += '<div class="help-box"><b>R objects available in webR</b><br><code>bd_data</code>: R data.frame with rows filtered by inputs connected to this webR widget. <code>bd_state</code>: named R list of every dashboard input state. <code>bd_params</code>: named R list of directly connected upstream values only. Return a string, HTML string, Markdown string, data.frame/data.table-like object, or draw/return a plot. For ggplot2, lattice, and grid plots, assign the plot to an object and call print(p) explicitly so the SVG graphics device receives drawing commands. Packages listed below are installed and attached in webR before the snippet runs; large packages can take time to download and install the first time.</div>'; html += selectField('Result type', 'widget.outputType', w.outputType || 'auto', ['auto', 'text', 'markdown', 'html', 'table', 'plot']); html += checkboxField('Visible in exported dashboard', 'widget.visible', w.visible !== false); html += checkboxField('Auto-run after opening and after upstream input changes', 'widget.autoRun', w.autoRun !== false); html += selectField('Console output mode', 'widget.consoleTheme', w.consoleTheme || 'dark', ['dark', 'light']); html += field('Packages to install and attach, comma-separated', 'text', 'widget.packages', w.packages || ''); html += codeArea('R code', 'widget.code', w.code || '', 12, 'r'); }
+      if (w.type === 'webr') { html += '<div class="help-box"><b>R objects available in webR</b><br><code>bd_data</code>: R data.frame with rows filtered by inputs connected to this webR widget. <code>bd_state</code>: named R list of every dashboard input state. <code>bd_params</code>: named R list of directly connected upstream values only. Return a string, HTML string, Markdown string, data.frame/data.table-like object, or draw/return a plot. For ggplot2, lattice, and grid plots, assign the plot to an object and call print(p) explicitly so the SVG graphics device receives drawing commands. Packages listed below are installed and attached in webR before the snippet runs; large packages can take time to download and install the first time.</div>'; html += selectField('Result type', 'widget.outputType', w.outputType || 'auto', ['auto', 'text', 'markdown', 'html', 'table', 'plot']); html += checkboxField('Visible in exported dashboard', 'widget.visible', w.visible !== false); html += checkboxField('Auto-run after opening and after upstream input changes', 'widget.autoRun', w.autoRun !== false); html += selectField('Console output mode', 'widget.consoleTheme', w.consoleTheme || 'dark', ['dark', 'light']); html += field('Packages to install and attach, comma-separated', 'text', 'widget.packages', w.packages || ''); html += checkboxField('Soft wrap code editor', 'widget.softWrap', w.softWrap !== false); html += codeArea('R code', 'widget.code', w.code || '', 12, 'r', w.softWrap !== false); }
     }
     html += '<div class="section-title">Size and position</div><div class="field-row">' + field('Left', 'number', 'node.x', n.x) + field('Top', 'number', 'node.y', n.y) + '</div><div class="field-row">' + field('Width', 'number', 'node.width', n.width) + field('Height', 'number', 'node.height', n.height) + '</div>';
     html += '<button class="btn danger" id="remove-selected">Remove selected widget</button>' + renderEdgeDetails() + '</div>';
@@ -529,10 +588,12 @@
     }).join('') + '</select></div>';
   }
   function textArea(label, prop, value, rows, klass) { return '<div class="field"><label>' + esc(label) + '</label><textarea data-prop="' + esc(prop) + '" rows="' + esc(rows || 6) + '" class="' + esc(klass || '') + '">' + esc(value || '') + '</textarea></div>'; }
-  function codeArea(label, prop, value, rows, lang) {
+  function codeArea(label, prop, value, rows, lang, softWrap) {
     var id = 'code_' + prop.replace(/[^A-Za-z0-9]+/g, '_');
     var val = value || '';
-    return '<div class="field code-field"><label>' + esc(label) + '</label><div class="code-editor-wrap" data-lang="' + esc(lang || '') + '"><pre class="code-highlight" id="' + esc(id) + '_highlight" aria-hidden="true">' + highlightCode(val, lang) + '</pre><textarea data-prop="' + esc(prop) + '" data-code-lang="' + esc(lang || '') + '" data-highlight-target="' + esc(id) + '_highlight" rows="' + esc(rows || 8) + '" class="code code-overlay" spellcheck="false" wrap="off">' + esc(val) + '</textarea></div></div>';
+    var wrapOn = softWrap === true;
+    var cls = 'code-editor-wrap' + (wrapOn ? ' soft-wrap' : '');
+    return '<div class="field code-field"><label>' + esc(label) + '</label><div class="' + cls + '" data-lang="' + esc(lang || '') + '"><pre class="code-highlight" id="' + esc(id) + '_highlight" aria-hidden="true">' + highlightCode(val, lang) + '</pre><textarea data-prop="' + esc(prop) + '" data-code-lang="' + esc(lang || '') + '" data-highlight-target="' + esc(id) + '_highlight" rows="' + esc(rows || 8) + '" class="code code-overlay" spellcheck="false" wrap="' + (wrapOn ? 'soft' : 'off') + '">' + esc(val) + '</textarea></div></div>';
   }
   function highlightCode(text, lang) { return lang === 'r' ? highlightR(text) : lang === 'yaml' ? highlightYaml(text) : lang === 'html' ? highlightHtml(text) : esc(text); }
   function highlightYaml(text) {
@@ -597,12 +658,13 @@
     document.querySelectorAll('[data-info]').forEach(function (el) { el.addEventListener('click', function (ev) { ev.stopPropagation(); showWidgetHelp(el.getAttribute('data-info')); }); });
     document.querySelectorAll('[data-tab]').forEach(function (el) { el.addEventListener('click', function () { state.inspectorTab = el.getAttribute('data-tab'); render(); }); });
     document.querySelectorAll('[data-prop]').forEach(function (el) {
+      if (el.tagName === 'INPUT' && el.type === 'number') bindNumberWheel(el);
       if (el.tagName === 'TEXTAREA' || (el.tagName === 'INPUT' && ['text', 'search', 'number'].indexOf(el.type) >= 0)) el.addEventListener('input', propLiveInput);
       el.addEventListener('change', propChange);
     });
     document.querySelectorAll('[data-delete-edge]').forEach(function (el) { el.addEventListener('click', function () { removeEdge(el.getAttribute('data-delete-edge')); }); });
     document.querySelectorAll('[data-delete-dataset]').forEach(function (el) { el.addEventListener('click', function () { deleteDataset(el.getAttribute('data-delete-dataset')); }); });
-    bind('save-btn', saveProject); bind('save-btn-2', saveProject); bind('export-btn', exportProject); bind('undo-btn', undo); bind('redo-btn', redo);
+    bind('save-btn', saveProject); bind('save-btn-2', saveProject); bind('compile-view-btn', compileAndViewProject); bind('export-btn', exportProject); bind('undo-btn', undo); bind('redo-btn', redo);
     bind('manual-btn', openManual); bind('manual-btn-2', openManual); bind('open-prompt-btn', openPrompt); bind('save-as-prompt-btn', saveAsPrompt);
     bind('fit-btn', goTopLeft); bind('align-btn', autoAlign); bind('align-btn-2', autoAlign); bind('clear-btn', clearCanvas); bind('clear-btn-2', clearCanvas);
     bind('remove-selected', function () { if (state.selected) removeWidget(state.selected); }); bind('canvas-help-close', dismissCanvasHelp);
@@ -639,6 +701,28 @@
   function rawPropValue(el) {
     return el.type === 'checkbox' ? el.checked : ((el.type === 'number' || el.type === 'range') ? Number(el.value) : el.value);
   }
+  function bindNumberWheel(el) {
+    if (!el || el.type !== 'number' || el.dataset.bdWheelBound) return;
+    el.dataset.bdWheelBound = '1';
+    el.addEventListener('wheel', function (ev) {
+      if (el.disabled || el.readOnly) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      try { el.focus({ preventScroll: true }); } catch (_) { try { el.focus(); } catch (_) {} }
+      var before = el.value;
+      var up = Number(ev.deltaY || 0) < 0;
+      try { if (up) el.stepUp(); else el.stepDown(); }
+      catch (_) {
+        var step = Number(el.step) > 0 ? Number(el.step) : 1;
+        var current = Number.isFinite(Number(el.value)) ? Number(el.value) : Number(el.min || 0);
+        var min = el.min === '' ? -Infinity : Number(el.min);
+        var max = el.max === '' ? Infinity : Number(el.max);
+        var next = current + (up ? step : -step);
+        el.value = String(Math.min(Number.isFinite(max) ? max : Infinity, Math.max(Number.isFinite(min) ? min : -Infinity, next)));
+      }
+      if (el.value !== before) el.dispatchEvent(new Event('input', { bubbles: true }));
+    }, { passive: false });
+  }
   function setPropValue(prop, valRaw) {
     if (!prop) return;
     if (prop.indexOf('state.') === 0) { state[prop.split('.')[1]] = valRaw; return; }
@@ -646,10 +730,26 @@
     var w = selectedWidget(); var n = selectedNode(); if (!w || !n) return;
     if (prop.indexOf('node.') === 0) { n[prop.split('.')[1]] = Number(valRaw) || 0; return; }
     if (prop.indexOf('widget.') === 0) prop = prop.replace(/^widget\./, '');
-    if (prop === 'labelTitle') { if (w.role === 'input') w.label = valRaw; else w.title = valRaw; return; }
+    if (prop === 'labelTitle') {
+      if (w.role === 'input' || w.type === 'metric') {
+        w.label = valRaw;
+        if (w.type === 'metric') delete w.title;
+      } else {
+        w.title = valRaw;
+      }
+      return;
+    }
     if (prop === 'columnsText') { w.columns = String(valRaw).split(',').map(function (x) { return x.trim(); }).filter(Boolean); return; }
     setDeep(w, prop, valRaw);
     if (prop === 'data') { var cols = colsFor(valRaw); if (w.field && cols.indexOf(w.field) < 0 && w.field !== '*') w.field = cols[0] || ''; }
+    if ((prop === 'field' || prop === 'data') && ['slider', 'range', 'number'].indexOf(w.type) >= 0) {
+      var rg = rangeFor(w.data || firstDataset(), w.field);
+      if (w.min == null || prop === 'field') w.min = rg[0];
+      if (w.max == null || prop === 'field') w.max = rg[1];
+      if (w.step == null || prop === 'field') w.step = sensibleStep(rg);
+      if (w.type === 'range') w.default = [w.min, w.max];
+      else if (w.default == null || prop === 'field') w.default = w.operator === '<=' ? w.max : w.min;
+    }
   }
   function propLiveInput(ev) {
     var prop = ev.target.getAttribute('data-prop');
@@ -730,6 +830,55 @@
   function openPrompt() { var p = prompt('Open design path (.yml/.yaml/.json or directory):', state.openPath || state.projectDir || ''); if (p) { state.openPath = p; openDesign(p); } }
   function openDesign(path) { api('/api/open', { body: { path: path } }).then(function (res) { state.manifest = res.manifest; state.projectDir = res.projectDir || ''; state.projectFile = res.projectFile || ''; state.history = []; state.future = []; state.dirty = false; state.yamlText = ''; state.yamlDirty = false; ensureManifest(); syncFromManifest(); render(); toast('Opened design'); }).catch(function (e) { toast(e.message, true); }); }
   function importDesignFile(ev) { var file = ev.target.files && ev.target.files[0]; if (!file) return; var reader = new FileReader(); reader.onload = function () { api('/api/yaml/to-json', { body: { yaml: String(reader.result || '') } }).then(function (res) { pushHistory(); state.manifest = res.manifest; ensureManifest(); syncFromManifest(); state.projectFile = file.name; state.dirty = true; state.yamlText = ''; state.yamlDirty = false; render(); toast('Imported design file. Use Save as to choose a local project path.'); }).catch(function (e) { toast(e.message, true); }); }; reader.onerror = function () { toast('Could not read design file.', true); }; reader.readAsText(file); }
+  function compileAndViewProject() {
+    var tab = window.open('about:blank', '_blank');
+    if (tab) showCompileStatus(tab, 'Compiling dashboard...', 'BlinkDash is exporting the current design.');
+
+    function fail(e) {
+      if (tab && !tab.closed) showCompileStatus(tab, 'Compile failed', e.message, true);
+      toast(e.message, true);
+    }
+
+    function finishCompile() {
+      state.manifest = manifestForSave();
+      api('/api/export', { body: { manifest: state.manifest, includeWorkflow: false } }).then(function (res) {
+        state.dirty = false;
+        state.yamlDirty = false;
+        render();
+        var url = '/compiled/?t=' + Date.now();
+        if (tab && !tab.closed) {
+          tab.location.href = url;
+          toast('Compiled dashboard to ' + (res.outDir || 'site'));
+        } else if (window.open(url, '_blank')) {
+          toast('Compiled dashboard to ' + (res.outDir || 'site'));
+        } else {
+          toast('Compiled dashboard to ' + (res.outDir || 'site') + '. Open /compiled/ to view it.', true);
+        }
+      }).catch(fail);
+    }
+
+    if (state.mode === 'yaml' && state.yamlDirty) {
+      var yed = byId('yaml-editor');
+      if (yed) state.yamlText = yed.value;
+      api('/api/yaml/to-json', { body: { yaml: state.yamlText } }).then(function (res) {
+        pushHistory();
+        state.manifest = res.manifest;
+        ensureManifest();
+        syncFromManifest();
+        finishCompile();
+      }).catch(fail);
+    } else {
+      finishCompile();
+    }
+  }
+  function showCompileStatus(tab, title, message, bad) {
+    if (!tab) return;
+    try {
+      tab.opener = null;
+      tab.document.title = title;
+      tab.document.body.innerHTML = '<main style="font-family:system-ui,sans-serif;padding:24px;line-height:1.5"><h1 style="font-size:20px;margin:0 0 8px;color:' + (bad ? '#b91c1c' : '#0f172a') + '">' + esc(title) + '</h1><p style="margin:0;color:#64748b;white-space:pre-wrap">' + esc(message || '') + '</p></main>';
+    } catch (_) {}
+  }
   function exportProject() { state.manifest = manifestForSave(); api('/api/export', { body: { manifest: state.manifest, includeWorkflow: true } }).then(function (res) { state.dirty = false; render(); toast('Exported static site to ' + (res.outDir || 'site')); }).catch(function (e) { toast(e.message, true); }); }
 
   function deleteDataset(name) {
@@ -771,14 +920,16 @@
   function openManual() { api('/api/manual').then(function (res) { var md = String(res.markdown || '').replace(/^#\s+BlinkDash Builder Manual\s*/i, ''); state.modal = { title: 'BlinkDash Builder Manual', html: markdown(md) }; render(); }).catch(function (e) { toast(e.message, true); }); }
   function showWidgetHelp(id) { var w = widget(id); if (!w) return; var it = itemFor(w.type); state.modal = { title: it.title + ' widget', html: '<p>' + esc(HELP[w.type] || 'No help available for this widget yet.') + '</p>' }; render(); }
 
-  function renderModal() { if (!state.modal) return ''; return '<div class="modal-backdrop"><div class="modal"><button class="modal-close" data-modal-close="1">×</button><h1>' + esc(state.modal.title || 'Help') + '</h1><div class="manual-html">' + (state.modal.html || '') + '</div></div></div>'; }
+  function renderModal() { if (!state.modal) return ''; return '<div class="modal-backdrop"><div class="modal"><div class="modal-heading"><h1>' + esc(state.modal.title || 'Help') + '</h1><button class="modal-close" data-modal-close="1" title="Close">×</button></div><div class="modal-scroll"><div class="manual-html">' + (state.modal.html || '') + '</div></div></div></div>'; }
   function markdown(md) {
-    var src = String(md || '');
+    var src = String(md || '').replace(/\r\n/g, '\n');
     var blocks = [];
-    src = src.replace(/```([A-Za-z0-9_-]*)\n([\s\S]*?)```/g, function(_, lang, code) {
-      var token = '§§CODE' + blocks.length + '§§';
-      blocks.push('<pre><code class="language-' + esc(lang || '') + '">' + esc(code) + '</code></pre>');
-      return token;
+    function hold(html) { var token = '§§CODE' + blocks.length + '§§'; blocks.push(html); return token; }
+    src = src.replace(/```([A-Za-z0-9_-]*)[ \t]*\n([\s\S]*?)```/g, function(_, lang, code) {
+      return hold('<pre><code class="language-' + esc(lang || '') + '">' + highlightCode(code, String(lang || '').toLowerCase()) + '</code></pre>');
+    });
+    src = src.replace(/\$\$([\s\S]*?)\$\$/g, function(_, tex) {
+      return hold('<div class="manual-math-block">\\[' + esc(tex.trim()) + '\\]</div>');
     });
     var s = esc(src);
     s = s.replace(/^### (.*)$/gm, '<h3>$1</h3>').replace(/^## (.*)$/gm, '<h2>$1</h2>').replace(/^# (.*)$/gm, '<h1>$1</h1>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\[([^\]]+)\]\((https?:[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
